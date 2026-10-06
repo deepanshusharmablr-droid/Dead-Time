@@ -5,27 +5,206 @@
 }
 
 body {
-    background: #0b0b0b;
+    background: #0a0a0a;
     color: #f5f5f5;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container {
+    width: min(900px, 90%);
+    margin: 0 auto;
+    padding: 100px 0;
     text-align: center;
 }
 
-h1 {
-    font-size: 72px;
-    letter-spacing: -4px;
+/* HEADER */
+
+.eyebrow {
+    color: #777;
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
 }
 
-p {
-    margin-top: 12px;
-    color: #888;
+h1 {
+    font-size: clamp(60px, 9vw, 110px);
+    line-height: 0.9;
+    letter-spacing: -6px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 28px;
+    color: #777;
     font-size: 20px;
+}
+
+/* SECTIONS */
+
+.time-section,
+.vibe-section {
+    margin-top: 80px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
+/* TIME BUTTONS */
+
+.time-options {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.time-option {
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 18px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    min-width: 100px;
+}
+
+.time-option strong {
+    display: block;
+    font-size: 28px;
+}
+
+.time-option span {
+    color: #777;
+    font-size: 13px;
+}
+
+.time-option:hover {
+    border-color: #777;
+    transform: translateY(-2px);
+}
+
+.time-option.selected {
+    background: #f5f5f5;
+    color: #0a0a0a;
+    border-color: #f5f5f5;
+}
+
+.time-option.selected span {
+    color: #555;
+}
+
+/* VIBE BUTTONS */
+
+.vibe-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.vibe-option {
+    background: transparent;
+    border: 1px solid #333;
+    color: #aaa;
+    padding: 12px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.vibe-option:hover {
+    color: #fff;
+    border-color: #777;
+}
+
+.vibe-option.selected {
+    background: #f5f5f5;
+    color: #0a0a0a;
+    border-color: #f5f5f5;
+}
+
+/* GENERATE BUTTON */
+
+.generate-button {
+    margin-top: 70px;
+    background: #f5f5f5;
+    color: #0a0a0a;
+    border: none;
+    padding: 18px 32px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.generate-button:hover {
+    transform: translateY(-3px);
+}
+
+/* CHALLENGE */
+
+.challenge-card {
+    display: none;
+    margin: 80px auto 0;
+    max-width: 600px;
+    padding: 50px;
+    border: 1px solid #292929;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.challenge-card.visible {
+    display: block;
+}
+
+.challenge-time {
+    color: #777;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.challenge-card h2 {
+    font-size: 38px;
+    margin-bottom: 16px;
+}
+
+.challenge-card > p:not(.challenge-time) {
+    color: #999;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.again-button {
+    margin-top: 30px;
+    background: transparent;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 70px 0;
+    }
+
+    h1 {
+        letter-spacing: -4px;
+    }
+
+    .challenge-card {
+        padding: 30px;
+    }
+
 }
