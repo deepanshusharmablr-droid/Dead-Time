@@ -11,10 +11,83 @@
 
 <body>
 
-    <div class="container">
-        <h1>DEAD TIME</h1>
-        <p>Do something with it.</p>
-    </div>
+    <main class="container">
+
+        <p class="eyebrow">DEAD TIME</p>
+
+        <h1>Don't waste<br>the gap.</h1>
+
+        <p class="subtitle">
+            You have time. Let's do something with it.
+        </p>
+
+        <section class="time-section">
+
+            <h2>How much time do you have?</h2>
+
+            <div class="time-options">
+
+                <button class="time-option" data-time="10">
+                    <strong>10</strong>
+                    <span>min</span>
+                </button>
+
+                <button class="time-option" data-time="20">
+                    <strong>20</strong>
+                    <span>min</span>
+                </button>
+
+                <button class="time-option" data-time="30">
+                    <strong>30</strong>
+                    <span>min</span>
+                </button>
+
+                <button class="time-option" data-time="60">
+                    <strong>60</strong>
+                    <span>min</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="vibe-section">
+
+            <h2>What's your vibe?</h2>
+
+            <div class="vibe-options">
+
+                <button class="vibe-option" data-vibe="chill">Chill</button>
+                <button class="vibe-option" data-vibe="learn">Learn</button>
+                <button class="vibe-option" data-vibe="move">Move</button>
+                <button class="vibe-option" data-vibe="social">Social</button>
+                <button class="vibe-option" data-vibe="random">Random</button>
+
+            </div>
+
+        </section>
+
+        <button class="generate-button" id="generateButton">
+            FIND ME SOMETHING
+        </button>
+
+        <section class="challenge-card" id="challengeCard">
+
+            <p class="challenge-time" id="challengeTime"></p>
+
+            <h2 id="challengeTitle"></h2>
+
+            <p id="challengeDescription"></p>
+
+            <button class="again-button" id="againButton">
+                Give me another
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
