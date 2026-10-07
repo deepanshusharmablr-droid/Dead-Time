@@ -9,385 +9,1046 @@
 
 const challenges = [
 
+    /* =========================================================
+       1. MORSE CODE
+       ========================================================= */
+
     {
         id: "morse-code",
-
-        title: "Learn Morse Code",
-
+        title: "Morse Code",
         category: "LEARN",
-
         description:
-            "Learn the fundamentals of Morse code, practice decoding it, and finish by sending your own message.",
-
+            "Learn how Morse code represents information, build recognition speed, decode and encode messages, and finish with a blind recall test.",
         vibes: ["learn", "random"],
-
         time: [20, 30, 60],
 
         overview: [
-            "Understand how Morse code works",
-            "Learn the core symbols and patterns",
+            "Understand the two-symbol structure of Morse code",
+            "Build recognition through pattern grouping",
             "Decode progressively harder messages",
-            "Practice recalling letters without a reference",
-            "Complete a real-world Morse mission"
+            "Encode English into Morse",
+            "Test recall without a reference"
         ],
 
         modules: [
 
             {
                 type: "info",
+                title: "The Language of Two Signals",
+                body: `
+                    <p>Morse code looks complicated because we usually see long strings of dots and dashes.</p>
 
-                title: "Meet the two symbols",
+                    <p>But underneath all of it, Morse is extremely simple:</p>
 
-                content: `
-                    <p>
-                        Morse code looks complicated at first, but the entire
-                        system is built from just <strong>two signals</strong>.
-                    </p>
+                    <div class="concept-box">
+                        <strong>Dot = short signal</strong><br>
+                        <strong>Dash = long signal</strong>
+                    </div>
 
-                    <p>
-                        A <strong>dot</strong> is a short signal.
-                        A <strong>dash</strong> is a long signal.
-                    </p>
+                    <p>Every letter is simply a different arrangement of those two signals.</p>
 
-                    <p>
-                        Every letter is simply a different combination of
-                        dots and dashes.
-                    </p>
-                `,
+                    <p>For example:</p>
 
-                example:
-                    "DOT  →  .\nDASH →  -\n\nE → .\nT → -"
-            },
+                    <div class="concept-box">
+                        E = .<br>
+                        T = -<br>
+                        A = .-<br>
+                        N = -.
+                    </div>
 
-
-            {
-                type: "quiz",
-
-                title: "Your first check",
-
-                question:
-                    "Which Morse code represents the letter E?",
-
-                choices: [
-                    ".",
-                    "-",
-                    "..",
-                    "--"
-                ],
-
-                answer: ".",
-
-                hint:
-                    "E is the simplest Morse letter. It contains only one short signal.",
-
-                explanation:
-                    "Correct. E = . because it is the simplest possible Morse character."
-            },
-
-
-            {
-                type: "info",
-
-                title: "Start building letters",
-
-                content: `
-                    <p>
-                        Once we combine dots and dashes, we can represent
-                        more letters.
-                    </p>
-
-                    <p>
-                        You don't need to memorize the entire Morse alphabet
-                        immediately. We're going to build it gradually.
-                    </p>
-                `,
-
-                example:
-                    "A → .-\nN → -.\nI → ..\nM → --\n\nS → ...\nO → ---"
-            },
-
-
-            {
-                type: "quiz",
-
-                title: "Decode a letter",
-
-                question:
-                    "What letter is represented by .- ?",
-
-                choices: [
-                    "A",
-                    "N",
-                    "I",
-                    "M"
-                ],
-
-                answer: "A",
-
-                hint:
-                    "Remember: A is dot followed by dash.",
-
-                explanation:
-                    "Exactly. A = .-."
-            },
-
-
-            {
-                type: "quiz",
-
-                title: "Another one",
-
-                question:
-                    "What letter is represented by ... ?",
-
-                choices: [
-                    "E",
-                    "I",
-                    "S",
-                    "O"
-                ],
-
-                answer: "S",
-
-                hint:
-                    "Start with E = one dot. I = two dots. Keep going.",
-
-                explanation:
-                    "Correct. S = ... — three dots."
-            },
-
-
-            {
-                type: "info",
-
-                title: "Patterns make Morse easier",
-
-                content: `
-                    <p>
-                        Here's the important trick: Morse isn't random.
-                        Many letters are built by extending simpler ones.
-                    </p>
-
-                    <p>
-                        Think of it like a tree. Start with a single signal,
-                        then add another signal to create new letters.
-                    </p>
-                `,
-
-                example:
-                    "E  .\nI  ..\nS  ...\nH  ....\n\nT  -\nM  --\nO  ---"
-            },
-
-
-            {
-                type: "quiz",
-
-                title: "Pattern recognition",
-
-                question:
-                    "If E is . and I is .., what would S be?",
-
-                choices: [
-                    ".-",
-                    "...",
-                    "--",
-                    "-."
-                ],
-
-                answer: "...",
-
-                hint:
-                    "We're adding another dot each time.",
-
-                explanation:
-                    "Correct. E = ., I = .., S = ..."
-            },
-
-
-            {
-                type: "input",
-
-                title: "Decode your first word",
-
-                question:
-                    "Decode this Morse message:",
-
-                example:
-                    "... --- ...",
-
-                placeholder:
-                    "Type the word here...",
-
-                answer: "SOS",
-
-                hint:
-                    "Break it into three letters: ... / --- / ...",
-
-                explanation:
-                    "Correct. ... = S, --- = O, ... = S."
-            },
-
-
-            {
-                type: "info",
-
-                title: "How words work",
-
-                content: `
-                    <p>
-                        Morse separates letters with spaces.
-                    </p>
-
-                    <p>
-                        So when you see:
-                    </p>
-
-                    <p>
-                        <strong>.... . .-.. .-.. ---</strong>
-                    </p>
-
-                    <p>
-                        you should read it one chunk at a time.
-                    </p>
-                `,
-
-                example:
-                    ".... = H\n. = E\n.-.. = L\n.-.. = L\n--- = O\n\nHELLO"
-            },
-
-
-            {
-                type: "input",
-
-                title: "Decode HELLO",
-
-                question:
-                    "What does this message say?",
-
-                example:
-                    ".... . .-.. .-.. ---",
-
-                placeholder:
-                    "Type your answer...",
-
-                answer: "HELLO",
-
-                hint:
-                    "Decode each group separately.",
-
-                explanation:
-                    "Correct. You just decoded HELLO."
-            },
-
-
-            {
-                type: "practice",
-
-                title: "Build your recall",
-
-                duration: 90,
-
-                content: `
-                    <p>
-                        For the next 90 seconds, try to memorize these
-                        eight letters:
-                    </p>
-
-                    <p>
-                        E, T, A, N, I, M, S, O
-                    </p>
-
-                    <p>
-                        Don't worry about speed. Focus on recognizing the
-                        patterns.
-                    </p>
+                    <p>The important idea is that you are not memorizing a new language. 
+                    You are learning a system for representing letters using two signals.</p>
                 `
             },
 
+            {
+                type: "quiz",
+                title: "First Signal",
+                question: "Which Morse symbol represents the letter E?",
+                options: [".", "-", "..", ".-"],
+                answer: 0,
+                explanation: "E is the simplest Morse character: one dot.",
+                hint: "Think of the shortest possible letter."
+            },
+
+            {
+                type: "info",
+                title: "Build From Patterns",
+                body: `
+                    <p>Instead of trying to memorize the entire alphabet randomly, notice how Morse letters are related.</p>
+
+                    <div class="concept-box">
+                        E = .<br>
+                        I = ..<br>
+                        S = ...<br><br>
+
+                        T = -<br>
+                        M = --<br>
+                        O = ---
+                    </div>
+
+                    <p>See what happened?</p>
+
+                    <p>Some letters are simply longer versions of simpler patterns.</p>
+
+                    <p>This is one of the easiest ways to learn Morse: 
+                    <strong>learn relationships rather than isolated symbols.</strong></p>
+                `
+            },
 
             {
                 type: "quiz",
-
-                title: "No cheat sheet",
-
-                question:
-                    "Without looking back, what is O in Morse code?",
-
-                choices: [
-                    "...",
-                    "--",
-                    "---",
-                    ".-"
-                ],
-
-                answer: "---",
-
-                hint:
-                    "O is three long signals.",
-
-                explanation:
-                    "Correct. O = ---."
+                title: "Pattern Recognition",
+                question: "What does .- represent?",
+                options: ["N", "A", "R", "K"],
+                answer: 1,
+                explanation: ".- is A.",
+                hint: "It starts with a dot and finishes with a dash."
             },
 
+            {
+                type: "quiz",
+                title: "Three Signals",
+                question: "What does ... represent?",
+                options: ["S", "H", "I", "V"],
+                answer: 0,
+                explanation: "S is three dots: ...",
+                hint: "Think E → I → S."
+            },
+
+            {
+                type: "info",
+                title: "Think in Families",
+                body: `
+                    <p>Morse becomes much easier when you recognize families of patterns.</p>
+
+                    <div class="concept-box">
+                        E = .<br>
+                        I = ..<br>
+                        S = ...<br>
+                        H = ....<br><br>
+
+                        T = -<br>
+                        M = --<br>
+                        O = ---
+                    </div>
+
+                    <p>You can think of these almost like branches of a tree.</p>
+
+                    <p>Start with one signal. Add another signal. 
+                    The resulting pattern points toward another letter.</p>
+
+                    <p>This is much more useful than blindly memorizing a table.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Which Family?",
+                question: "Which sequence belongs to the dot family?",
+                options: ["E → I → S", "T → M → O", "A → N → M", "R → K → C"],
+                answer: 0,
+                explanation: "E, I, S and H are built progressively from dots.",
+                hint: "Start with the single-dot letter."
+            },
 
             {
                 type: "input",
-
-                title: "Encode a word",
-
-                question:
-                    "Write the Morse code for SOS.",
-
-                placeholder:
-                    "Example: ... --- ...",
-
-                answer: "... --- ...",
-
-                hint:
-                    "S = ..., O = --- and S = ...",
-
-                explanation:
-                    "Exactly. SOS = ... --- ..."
+                title: "Decode SOS",
+                question: "Decode this message: ... --- ...",
+                answer: "sos",
+                explanation: "The three groups are S, O, S.",
+                hint: "Separate the message into three letters."
             },
 
+            {
+                type: "info",
+                title: "Words Need Spacing",
+                body: `
+                    <p>Morse doesn't only need symbols. It also needs structure.</p>
+
+                    <div class="concept-box">
+                        <strong>Letters</strong> are separated from one another.<br><br>
+                        <strong>Words</strong> have a larger separation.
+                    </div>
+
+                    <p>So:</p>
+
+                    <div class="concept-box">
+                        .... . .-.. .-.. ---<br><br>
+                        H E L L O
+                    </div>
+
+                    <p>The individual Morse groups correspond to individual letters.
+                    You decode each group separately, then combine the letters into words.</p>
+                `
+            },
+
+            {
+                type: "input",
+                title: "Decode a Word",
+                question: "Decode: .... . .-.. .-.. ---",
+                answer: "hello",
+                explanation: "H = ...., E = ., L = .-.., L = .-.., O = ---.",
+                hint: "Decode each group independently."
+            },
+
+            {
+                type: "practice",
+                title: "Rapid Recall",
+                duration: 90,
+                instruction:
+                    "For the next 90 seconds, repeatedly recall these letters without looking them up: E, T, A, N, I, M, S, O. Focus on recognizing the pattern instantly rather than consciously counting every symbol."
+            },
+
+            {
+                type: "quiz",
+                title: "The Long Signal",
+                question: "What does --- represent?",
+                options: ["M", "G", "O", "Q"],
+                answer: 2,
+                explanation: "O is three dashes: ---.",
+                hint: "Think E/I/S and T/M/O as two parallel families."
+            },
+
+            {
+                type: "input",
+                title: "Encode SOS",
+                question: "Encode SOS using dots and dashes.",
+                answer: "... --- ...",
+                explanation: "S = ..., O = ---, S = ...",
+                hint: "You already decoded this message earlier."
+            },
 
             {
                 type: "mission",
-
-                title: "Your final mission",
-
-                content: `
-                    <p>
-                        You've now learned enough Morse code to actually use it.
-                    </p>
-
-                    <p>
-                        Your mission is to write your own name in Morse code.
-                        Then write a short message of at least three letters.
-                    </p>
-
-                    <p>
-                        Try doing it <strong>without looking anything up</strong>.
-                    </p>
-                `,
-
+                title: "Blind Transmission",
                 instruction:
-                    "Complete the Morse exercise in real life before continuing."
+                    "Without looking anything up, write your name in Morse code and then create a second message containing at least three letters.",
+                requirement:
+                    "Complete the task without using a Morse reference."
             },
-
 
             {
                 type: "reflection",
-
-                title: "Lock it in",
-
+                title: "Explain the System",
                 question:
-                    "In your own words, explain how Morse code represents letters.",
-
-                placeholder:
-                    "Write what you learned..."
+                    "In your own words, explain how Morse code represents letters and why patterns make it easier to learn."
             }
+        ]
+    },
 
+
+    /* =========================================================
+       2. MEMORY PALACE
+       ========================================================= */
+
+    {
+        id: "memory-palace",
+        title: "Memory Palace",
+        category: "LEARN",
+        description:
+            "Learn how spatial memory and vivid associations can be used to remember lists, concepts, and information far more reliably.",
+        vibes: ["learn", "random"],
+        time: [20, 30, 60],
+
+        overview: [
+            "Understand why ordinary repetition is weak",
+            "Learn the memory-palace method",
+            "Create a spatial route",
+            "Convert abstract information into images",
+            "Test recall after interference"
+        ],
+
+        modules: [
+
+            {
+                type: "info",
+                title: "Why You Forget",
+                body: `
+                    <p>Your brain is not particularly good at remembering isolated information.</p>
+
+                    <p>Try remembering this:</p>
+
+                    <div class="concept-box">
+                        17 — umbrella — copper — tiger — 82 — violin
+                    </div>
+
+                    <p>There is no obvious relationship between the items.</p>
+
+                    <p>Now imagine:</p>
+
+                    <p>A giant <strong>tiger</strong> wearing a <strong>violin</strong>
+                    crashes through your front door while an <strong>umbrella</strong>
+                    made of <strong>copper</strong> falls from the ceiling.</p>
+
+                    <p>Suddenly the information becomes memorable.</p>
+
+                    <p>The trick is <strong>association + imagery + location</strong>.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "The Core Principle",
+                question: "Which combination makes information easier to remember?",
+                options: [
+                    "Repetition only",
+                    "Random facts",
+                    "Association, imagery and location",
+                    "Reading the same sentence repeatedly"
+                ],
+                answer: 2,
+                explanation:
+                    "The memory-palace technique relies heavily on association, vivid imagery and spatial structure.",
+                hint: "Think about why the tiger example was easier to remember."
+            },
+
+            {
+                type: "info",
+                title: "Build Your Palace",
+                body: `
+                    <p>A memory palace is simply a familiar place that you can mentally walk through.</p>
+
+                    <p>It could be:</p>
+
+                    <div class="concept-box">
+                        Your bedroom → desk → bed → wardrobe → door
+                    </div>
+
+                    <p>The locations need to be consistent.</p>
+
+                    <p>You then attach one piece of information to each location.</p>
+
+                    <p>The physical route becomes the structure that holds the information.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Order Matters",
+                question: "Why should locations in a memory palace remain consistent?",
+                options: [
+                    "Because the brain dislikes colours",
+                    "Because the route provides an ordered retrieval structure",
+                    "Because changing rooms makes information disappear",
+                    "Because every palace must have five rooms"
+                ],
+                answer: 1,
+                explanation:
+                    "A consistent route gives you a predictable sequence for retrieving information.",
+                hint: "Imagine trying to navigate a building where the rooms randomly moved."
+            },
+
+            {
+                type: "info",
+                title: "Make Images Ridiculous",
+                body: `
+                    <p>Do not create boring mental images.</p>
+
+                    <p>If you need to remember the word <strong>coffee</strong>,
+                    don't simply imagine a cup.</p>
+
+                    <p>Imagine a gigantic coffee cup flooding your bedroom,
+                    with coffee pouring from the ceiling.</p>
+
+                    <p>Strange images work because they stand out.</p>
+
+                    <div class="concept-box">
+                        Ordinary → weak memory<br>
+                        Emotional + ridiculous + visual → stronger memory
+                    </div>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Which Image Wins?",
+                question: "You need to remember 'elephant'. Which mental image is strongest?",
+                options: [
+                    "A normal elephant",
+                    "The word ELEPHANT written on paper",
+                    "A tiny elephant driving your car through your bedroom",
+                    "Repeating the word 20 times"
+                ],
+                answer: 2,
+                explanation:
+                    "Unexpected, exaggerated and interactive imagery creates stronger associations.",
+                hint: "Which option would be hardest to forget?"
+            },
+
+            {
+                type: "input",
+                title: "Build Your First Route",
+                question:
+                    "Write five locations from a familiar place in the exact order you could mentally walk through them.",
+                answerType: "long",
+                explanation:
+                    "There is no single correct route. The important part is that the sequence is clear and familiar.",
+                hint:
+                    "Example: front door → sofa → TV → kitchen → bedroom."
+            },
+
+            {
+                type: "practice",
+                title: "Memorization Round",
+                duration: 90,
+                instruction:
+                    "Create a five-location mental route. Attach these five words to the locations using exaggerated images: APPLE, ROCKET, MIRROR, DOG, OCEAN. Spend the first minute building the images. Then try recalling the five words in order."
+            },
+
+            {
+                type: "quiz",
+                title: "Interference",
+                question:
+                    "Why is testing yourself after doing another task useful?",
+                options: [
+                    "It makes the information disappear",
+                    "It tests whether the memory survives interference",
+                    "It makes memorization unnecessary",
+                    "It only measures reading speed"
+                ],
+                answer: 1,
+                explanation:
+                    "Real memory is often needed after distractions. Interference testing checks whether the memory is actually retrievable.",
+                hint: "Imagine being asked to remember something 10 minutes later."
+            },
+
+            {
+                type: "mission",
+                title: "Use It For Real",
+                instruction:
+                    "Choose five things you genuinely need to remember today. Place each one at a different location in a familiar route. Later, try retrieving the list without checking your phone.",
+                requirement:
+                    "Use the technique on information that actually matters to you."
+            },
+
+            {
+                type: "reflection",
+                title: "Explain Your Method",
+                question:
+                    "Explain why a memory palace can work better than simply repeating information."
+            }
+        ]
+    },
+
+
+    /* =========================================================
+       3. NEGOTIATION
+       ========================================================= */
+
+    {
+        id: "negotiation",
+        title: "Negotiation",
+        category: "SOCIAL",
+        description:
+            "Learn the fundamentals of negotiation: interests, leverage, anchoring, alternatives, and how to create better outcomes without simply being aggressive.",
+        vibes: ["social", "learn", "random"],
+        time: [20, 30, 60],
+
+        overview: [
+            "Separate positions from interests",
+            "Understand BATNA and leverage",
+            "Recognize anchoring",
+            "Practice asking better questions",
+            "Handle realistic negotiation scenarios"
+        ],
+
+        modules: [
+
+            {
+                type: "info",
+                title: "Position vs Interest",
+                body: `
+                    <p>A <strong>position</strong> is what someone says they want.</p>
+
+                    <p>An <strong>interest</strong> is the reason they want it.</p>
+
+                    <div class="concept-box">
+                        Position: "I need ₹20,000."<br><br>
+                        Interest: "I need enough money to cover my expenses this month."
+                    </div>
+
+                    <p>Negotiations often become easier when you discover the underlying interest.</p>
+
+                    <p>If you only argue about positions, both sides can become stuck.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Find The Interest",
+                question:
+                    "A freelancer says, 'I won't accept less than ₹50,000.' What should you try to understand?",
+                options: [
+                    "Why ₹50,000 is mathematically beautiful",
+                    "What underlying need or constraint makes ₹50,000 important",
+                    "How to force them below ₹50,000",
+                    "Whether they like the number 50"
+                ],
+                answer: 1,
+                explanation:
+                    "Understanding the reason behind the position can reveal alternative solutions.",
+                hint: "Ask yourself: 'Why this number?'"
+            },
+
+            {
+                type: "info",
+                title: "Your BATNA",
+                body: `
+                    <p>BATNA means <strong>Best Alternative To a Negotiated Agreement</strong>.</p>
+
+                    <p>In simple terms:</p>
+
+                    <div class="concept-box">
+                        "What will I do if this deal fails?"
+                    </div>
+
+                    <p>If you have a strong alternative, you don't need to accept a bad deal.</p>
+
+                    <p>Example:</p>
+
+                    <p>If Company A offers you ₹40,000 but Company B will definitely pay ₹55,000,
+                    Company A has much less leverage over you.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Leverage",
+                question:
+                    "Which person generally has stronger negotiating leverage?",
+                options: [
+                    "Someone with no alternatives",
+                    "Someone who desperately needs the deal",
+                    "Someone with a strong alternative if the deal fails",
+                    "Someone who talks the loudest"
+                ],
+                answer: 2,
+                explanation:
+                    "A strong alternative reduces your dependence on the current negotiation.",
+                hint: "Think about what happens if you simply walk away."
+            },
+
+            {
+                type: "info",
+                title: "The First Number",
+                body: `
+                    <p>The first serious number introduced in a negotiation can influence the rest of the conversation.</p>
+
+                    <p>This is called <strong>anchoring</strong>.</p>
+
+                    <p>Imagine negotiating a laptop:</p>
+
+                    <div class="concept-box">
+                        Seller: "₹80,000."<br>
+                        Buyer: "₹50,000."
+                    </div>
+
+                    <p>The conversation is now happening around those reference points.</p>
+
+                    <p>Anchoring is powerful, but a random aggressive number isn't automatically a good anchor.</p>
+
+                    <p>A useful anchor should be supported by reasoning or evidence.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Good Anchor",
+                question:
+                    "Which is the strongest opening anchor when negotiating a used laptop?",
+                options: [
+                    "₹1 because everything should be cheap",
+                    "A researched price based on condition and comparable listings",
+                    "The highest number you can imagine",
+                    "No number at all"
+                ],
+                answer: 1,
+                explanation:
+                    "A credible anchor is much more defensible than a completely arbitrary number.",
+                hint: "Would the other person take your number seriously?"
+            },
+
+            {
+                type: "input",
+                title: "Ask Instead of Assume",
+                question:
+                    "You are buying something and the seller refuses your offer. Write one question that could reveal their underlying interest or constraint.",
+                answerType: "long",
+                explanation:
+                    "Good negotiators gather information instead of immediately escalating the argument.",
+                hint:
+                    "Try something like: 'What makes that price important to you?'"
+            },
+
+            {
+                type: "quiz",
+                title: "Scenario: The Salary",
+                question:
+                    "A company offers ₹45,000. You know another company would likely offer ₹50,000, but you prefer the first company's role. What is the strongest response?",
+                options: [
+                    "Immediately accept",
+                    "Threaten to leave",
+                    "Explain your interest in the role and ask whether compensation has flexibility",
+                    "Insult the offer"
+                ],
+                answer: 2,
+                explanation:
+                    "You can communicate your alternative while preserving the relationship and exploring flexibility.",
+                hint: "You have leverage, but you also value this opportunity."
+            },
+
+            {
+                type: "quiz",
+                title: "Scenario: The Room",
+                question:
+                    "A roommate wants to pay less for rent because their room is smaller. What is the best first move?",
+                options: [
+                    "Say no immediately",
+                    "Ask what outcome they consider fair and why",
+                    "Tell them they are being cheap",
+                    "End the discussion"
+                ],
+                answer: 1,
+                explanation:
+                    "Start by understanding the other person's reasoning before proposing solutions.",
+                hint: "Information comes before solutions."
+            },
+
+            {
+                type: "mission",
+                title: "Real Negotiation",
+                instruction:
+                    "Have one low-stakes real negotiation today. Ask at least one question before making your counteroffer. Focus on understanding the other person's interests rather than simply trying to 'win'.",
+                requirement:
+                    "Use the interest → alternative → proposal approach."
+            },
+
+            {
+                type: "reflection",
+                title: "What Actually Creates Leverage?",
+                question:
+                    "Explain in your own words why having alternatives can change a negotiation."
+            }
+        ]
+    },
+
+
+    /* =========================================================
+       4. MENTAL MATH
+       ========================================================= */
+
+    {
+        id: "mental-math",
+        title: "Mental Math",
+        category: "THINK",
+        description:
+            "Build practical mental calculation skills using decomposition, percentages, estimation and arithmetic shortcuts instead of relying on a calculator.",
+        vibes: ["learn", "think", "random"],
+        time: [20, 30, 60],
+
+        overview: [
+            "Learn decomposition techniques",
+            "Calculate percentages mentally",
+            "Use estimation to check answers",
+            "Perform multi-step calculations",
+            "Build calculation speed"
+        ],
+
+        modules: [
+
+            {
+                type: "info",
+                title: "Don't Calculate the Hard Way",
+                body: `
+                    <p>Mental math is often about transforming a difficult calculation into an easier one.</p>
+
+                    <p>For example:</p>
+
+                    <div class="concept-box">
+                        19 × 6
+                    </div>
+
+                    <p>Instead of doing traditional multiplication:</p>
+
+                    <div class="concept-box">
+                        20 × 6 − 1 × 6<br>
+                        = 120 − 6<br>
+                        = 114
+                    </div>
+
+                    <p>This is called <strong>decomposition</strong>.</p>
+
+                    <p>You change the problem into pieces that your brain handles more easily.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Decompose",
+                question: "What is the easiest mental approach for 29 × 7?",
+                options: [
+                    "30 × 7 − 7",
+                    "20 × 7 + 20",
+                    "29 + 7",
+                    "30 × 6"
+                ],
+                answer: 0,
+                explanation: "30 × 7 = 210, then subtract 7 → 203.",
+                hint: "Move 29 to the nearby round number 30."
+            },
+
+            {
+                type: "info",
+                title: "Percentages Become Easy",
+                body: `
+                    <p>You don't need to memorize every percentage.</p>
+
+                    <div class="concept-box">
+                        10% = divide by 10<br>
+                        5% = half of 10%<br>
+                        1% = divide by 100<br>
+                        20% = double 10%
+                    </div>
+
+                    <p>So to calculate 15% of ₹800:</p>
+
+                    <div class="concept-box">
+                        10% = ₹80<br>
+                        5% = ₹40<br>
+                        15% = ₹120
+                    </div>
+
+                    <p>Break percentages into simple pieces.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Percentage",
+                question: "What is 15% of 600?",
+                options: ["60", "75", "90", "120"],
+                answer: 2,
+                explanation: "10% = 60 and 5% = 30, so 15% = 90.",
+                hint: "Break 15% into 10% + 5%."
+            },
+
+            {
+                type: "quiz",
+                title: "Another Percentage",
+                question: "What is 25% of 240?",
+                options: ["40", "50", "60", "80"],
+                answer: 2,
+                explanation: "25% is one quarter. 240 ÷ 4 = 60.",
+                hint: "25% = one quarter."
+            },
+
+            {
+                type: "info",
+                title: "Estimate Before You Calculate",
+                body: `
+                    <p>One of the most useful mental-math skills is knowing roughly what the answer should be.</p>
+
+                    <p>Suppose you calculate:</p>
+
+                    <div class="concept-box">
+                        497 × 21
+                    </div>
+
+                    <p>Before calculating exactly, think:</p>
+
+                    <div class="concept-box">
+                        500 × 20 ≈ 10,000
+                    </div>
+
+                    <p>So if your exact answer suddenly becomes 100,000,
+                    you immediately know something went wrong.</p>
+
+                    <p>Estimation is an error-detection tool.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Sanity Check",
+                question: "Which answer is closest to 198 × 51?",
+                options: ["1,000", "5,000", "10,000", "20,000"],
+                answer: 2,
+                explanation: "200 × 50 = 10,000, so the answer should be around 10,000.",
+                hint: "Round both numbers first."
+            },
+
+            {
+                type: "input",
+                title: "Calculate It",
+                question: "What is 48 × 25?",
+                answer: "1200",
+                explanation:
+                    "25 is one quarter of 100. 48 × 100 = 4800, divided by 4 = 1200.",
+                hint: "Use the fact that 25 = 100 ÷ 4."
+            },
+
+            {
+                type: "input",
+                title: "Discount",
+                question:
+                    "A ₹2,400 item is discounted by 15%. What is the final price?",
+                answer: "2040",
+                explanation:
+                    "15% of ₹2400 = ₹360. ₹2400 − ₹360 = ₹2040.",
+                hint:
+                    "Calculate 10% and 5% separately."
+            },
+
+            {
+                type: "practice",
+                title: "Speed Round",
+                duration: 90,
+                instruction:
+                    "For 90 seconds, solve as many mental calculations as possible. Try problems such as 19×6, 24×25, 15% of 800, 35% of 200, 99×8 and 450÷9. Prioritize accuracy first, then speed."
+            },
+
+            {
+                type: "quiz",
+                title: "Reverse Thinking",
+                question:
+                    "A price increased by 20% becomes ₹1,200. What was the original price?",
+                options: ["₹960", "₹1,000", "₹1,020", "₹1,100"],
+                answer: 1,
+                explanation:
+                    "120% of the original = 1200. Therefore the original is 1200 ÷ 1.2 = 1000.",
+                hint: "₹1,200 represents 120%, not 100%."
+            },
+
+            {
+                type: "mission",
+                title: "Calculator-Free Day",
+                instruction:
+                    "For the next few small calculations you encounter today—tips, discounts, percentages, splitting bills—calculate the answer mentally before checking with your calculator.",
+                requirement:
+                    "Use estimation first and exact calculation second."
+            },
+
+            {
+                type: "reflection",
+                title: "The Real Skill",
+                question:
+                    "Explain why mental math is often more about transforming a problem than directly calculating it."
+            }
+        ]
+    },
+
+
+    /* =========================================================
+       5. LOGIC & DEDUCTION
+       ========================================================= */
+
+    {
+        id: "logic-deduction",
+        title: "Logic & Deduction",
+        category: "THINK",
+        description:
+            "Train structured reasoning by separating facts from assumptions, eliminating impossible cases, and solving increasingly difficult deduction problems.",
+        vibes: ["think", "learn", "random"],
+        time: [20, 30, 60],
+
+        overview: [
+            "Separate facts from assumptions",
+            "Use elimination systematically",
+            "Understand conditional reasoning",
+            "Solve structured deduction problems",
+            "Explain why an answer must be true"
+        ],
+
+        modules: [
+
+            {
+                type: "info",
+                title: "Facts vs Assumptions",
+                body: `
+                    <p>Good reasoning starts by separating what you actually know from what you are merely assuming.</p>
+
+                    <div class="concept-box">
+                        FACT:<br>
+                        "The light is on."
+                        <br><br>
+                        ASSUMPTION:<br>
+                        "Someone must be inside."
+                    </div>
+
+                    <p>The assumption might be correct, but it isn't logically guaranteed.</p>
+
+                    <p>Strong problem solving means constantly asking:</p>
+
+                    <div class="concept-box">
+                        "What do I actually know?"
+                    </div>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Spot the Assumption",
+                question:
+                    "You see someone's phone on a table. What can you logically conclude?",
+                options: [
+                    "They are definitely in the building",
+                    "They definitely left recently",
+                    "The phone is on the table",
+                    "They are currently using it"
+                ],
+                answer: 2,
+                explanation:
+                    "The only guaranteed fact from the observation is that the phone is on the table.",
+                hint: "Choose only what the evidence directly proves."
+            },
+
+            {
+                type: "info",
+                title: "Elimination",
+                body: `
+                    <p>Many logic problems become easier when you eliminate impossible options instead of trying to immediately find the correct one.</p>
+
+                    <p>Suppose three people—A, B and C—own three different objects.</p>
+
+                    <p>If you discover:</p>
+
+                    <div class="concept-box">
+                        A ≠ red<br>
+                        B ≠ blue<br>
+                        C = green
+                    </div>
+
+                    <p>You've already removed several possibilities.</p>
+
+                    <p>Logic is often a process of reducing the possibility space until only one answer remains.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Elimination",
+                question:
+                    "Three boxes are red, blue and green. The red box is not Box A. The blue box is not Box B. Box C is green. Which statement must be true?",
+                options: [
+                    "Box A is blue",
+                    "Box B is red",
+                    "Box C is green",
+                    "Box A is red"
+                ],
+                answer: 2,
+                explanation:
+                    "The problem directly states that Box C is green.",
+                hint: "Start with information that is explicitly guaranteed."
+            },
+
+            {
+                type: "info",
+                title: "Conditional Logic",
+                body: `
+                    <p>Conditional statements are another major part of logical reasoning.</p>
+
+                    <div class="concept-box">
+                        If A happens → B happens.
+                    </div>
+
+                    <p>But be careful.</p>
+
+                    <p>If you know B happened, you cannot automatically conclude A happened.</p>
+
+                    <p>Example:</p>
+
+                    <div class="concept-box">
+                        If it rains → the ground becomes wet.
+                    </div>
+
+                    <p>The ground being wet does not prove that it rained.
+                    Someone could have used a hose.</p>
+                `
+            },
+
+            {
+                type: "quiz",
+                title: "Conditional Reasoning",
+                question:
+                    "If all marathon runners train regularly, and Ravi trains regularly, what can you conclude?",
+                options: [
+                    "Ravi is definitely a marathon runner",
+                    "Ravi may be a marathon runner",
+                    "Ravi never runs",
+                    "Ravi definitely does not run"
+                ],
+                answer: 1,
+                explanation:
+                    "The rule only says marathon runners train regularly. Other people can also train regularly.",
+                hint: "Does training regularly uniquely identify marathon runners?"
+            },
+
+            {
+                type: "quiz",
+                title: "The Switches",
+                question:
+                    "You have three switches and one light in another room. You can manipulate the switches before entering the room once. What information could help identify the correct switch?",
+                options: [
+                    "The colour of the switches",
+                    "Whether the bulb is warm",
+                    "The number of screws",
+                    "Nothing can ever help"
+                ],
+                answer: 1,
+                explanation:
+                    "You can turn one switch on for a while, turn it off, turn another on, then enter and use whether the bulb is lit or warm to distinguish possibilities.",
+                hint: "Don't only think about whether the bulb is ON or OFF."
+            },
+
+            {
+                type: "input",
+                title: "Deduction",
+                question:
+                    "A box contains only red and blue balls. You know there are more red balls than blue balls. If there are 5 blue balls, what is the smallest possible number of red balls?",
+                answer: "6",
+                explanation:
+                    "There must simply be more red than 5, so the smallest possibility is 6.",
+                hint: "More than 5 means the next whole number."
+            },
+
+            {
+                type: "quiz",
+                title: "The Classic",
+                question:
+                    "A farmer has chickens and cows. There are 10 animals and 28 legs. How many cows are there?",
+                options: ["3", "4", "5", "6"],
+                answer: 1,
+                explanation:
+                    "If all 10 were chickens there would be 20 legs. The extra 8 legs come from cows, each adding 2 extra legs. 8 ÷ 2 = 4 cows.",
+                hint:
+                    "Start by imagining every animal is a chicken."
+            },
+
+            {
+                type: "practice",
+                title: "Reasoning Sprint",
+                duration: 90,
+                instruction:
+                    "For 90 seconds, solve small logic problems without immediately guessing. For each one, first write down the facts you know, then eliminate impossible options. Your goal is to build the habit of structured reasoning."
+            },
+
+            {
+                type: "mission",
+                title: "Catch an Assumption",
+                instruction:
+                    "During one conversation today, notice a conclusion someone makes. Ask yourself whether it is actually guaranteed by the evidence or whether it relies on an assumption.",
+                requirement:
+                    "Identify at least one assumption you normally would have overlooked."
+            },
+
+            {
+                type: "reflection",
+                title: "Explain Good Reasoning",
+                question:
+                    "What is the difference between having a possible explanation and having a logically proven conclusion?"
+            }
         ]
     }
 
