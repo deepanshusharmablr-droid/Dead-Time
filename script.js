@@ -143,3 +143,5 @@ function findChallenge() {
 generateButton.addEventListener("click", findChallenge);
 
 againButton.addEventListener("click", findChallenge);
+
+// deployment refresh
