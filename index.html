@@ -85,25 +85,11 @@
 
                     <div class="vibe-options">
 
-                        <button class="vibe-option" data-vibe="chill">
-                            Chill
-                        </button>
-
-                        <button class="vibe-option" data-vibe="learn">
-                            Learn
-                        </button>
-
-                        <button class="vibe-option" data-vibe="move">
-                            Move
-                        </button>
-
-                        <button class="vibe-option" data-vibe="social">
-                            Social
-                        </button>
-
-                        <button class="vibe-option" data-vibe="random">
-                            Random
-                        </button>
+                        <button class="vibe-option" data-vibe="chill">Chill</button>
+                        <button class="vibe-option" data-vibe="learn">Learn</button>
+                        <button class="vibe-option" data-vibe="move">Move</button>
+                        <button class="vibe-option" data-vibe="social">Social</button>
+                        <button class="vibe-option" data-vibe="random">Random</button>
 
                     </div>
 
@@ -121,9 +107,11 @@
 
             <section class="challenge-card" id="challengeCard">
 
-                <div class="challenge-content">
+                <div class="challenge-intro" id="challengeIntro">
 
                     <p class="challenge-time" id="challengeTime"></p>
+
+                    <p class="challenge-category" id="challengeCategory"></p>
 
                     <h2 id="challengeTitle"></h2>
 
@@ -144,30 +132,61 @@
                 </div>
 
 
-                <!-- ACTIVE CHALLENGE -->
+                <!-- CHALLENGE WORKSPACE -->
 
-                <div class="active-challenge" id="activeChallenge">
+                <div class="challenge-workspace" id="challengeWorkspace">
 
-                    <p class="active-label">
-                        CHALLENGE IN PROGRESS
-                    </p>
+                    <div class="workspace-header">
 
-                    <div class="timer" id="timer">
-                        00:00
+                        <div>
+                            <p class="active-label" id="workspaceCategory"></p>
+                            <h2 id="workspaceTitle"></h2>
+                        </div>
+
+                        <div class="timer" id="timer">
+                            00:00
+                        </div>
+
                     </div>
 
-                    <p class="timer-status" id="timerStatus">
-                        Make the most of it.
-                    </p>
 
-                    <div class="timer-actions">
+                    <div class="progress-container">
+
+                        <div class="progress-text">
+                            <span id="stepCounter">STEP 1</span>
+                            <span id="progressPercent">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <p class="step-label" id="stepLabel">
+                            STEP 1
+                        </p>
+
+                        <h3 id="stepTitle"></h3>
+
+                        <p id="stepContent"></p>
+
+                        <div class="step-example" id="stepExample"></div>
+
+                    </div>
+
+
+                    <div class="workspace-actions">
 
                         <button class="timer-button" id="pauseButton">
                             PAUSE
                         </button>
 
-                        <button class="complete-button" id="completeButton">
-                            I DID IT ✓
+                        <button class="next-button" id="nextButton">
+                            NEXT STEP →
                         </button>
 
                     </div>
@@ -214,70 +233,27 @@
             <div class="stats-grid">
 
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        CHALLENGES
-                    </span>
-
-                    <strong id="totalChallenges">
-                        0
-                    </strong>
-
-                    <span class="stat-description">
-                        completed
-                    </span>
-
+                    <span class="stat-label">CHALLENGES</span>
+                    <strong id="totalChallenges">0</strong>
+                    <span class="stat-description">completed</span>
                 </div>
 
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        STREAK
-                    </span>
-
-                    <strong id="currentStreak">
-                        0
-                    </strong>
-
-                    <span class="stat-description">
-                        days
-                    </span>
-
+                    <span class="stat-label">STREAK</span>
+                    <strong id="currentStreak">0</strong>
+                    <span class="stat-description">days</span>
                 </div>
 
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        BEST STREAK
-                    </span>
-
-                    <strong id="longestStreak">
-                        0
-                    </strong>
-
-                    <span class="stat-description">
-                        days
-                    </span>
-
+                    <span class="stat-label">BEST STREAK</span>
+                    <strong id="longestStreak">0</strong>
+                    <span class="stat-description">days</span>
                 </div>
 
-
                 <div class="stat-card">
-
-                    <span class="stat-label">
-                        TIME RECLAIMED
-                    </span>
-
-                    <strong id="totalMinutes">
-                        0
-                    </strong>
-
-                    <span class="stat-description">
-                        minutes
-                    </span>
-
+                    <span class="stat-label">TIME RECLAIMED</span>
+                    <strong id="totalMinutes">0</strong>
+                    <span class="stat-description">minutes</span>
                 </div>
 
             </div>
@@ -303,11 +279,7 @@
 
 
     <footer>
-
-        <p>
-            Dead Time — Do something with it.
-        </p>
-
+        <p>Dead Time — Do something with it.</p>
     </footer>
 
 
