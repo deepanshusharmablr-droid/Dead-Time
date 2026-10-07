@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #0a0a0a;
     color: #f5f5f5;
@@ -11,23 +15,86 @@ body {
     min-height: 100vh;
 }
 
-.container {
+
+/* NAVIGATION */
+
+.navbar {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 28px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #1d1d1d;
+}
+
+.logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-button {
+    background: transparent;
+    border: none;
+    color: #666;
+
+    padding: 8px 14px;
+
+    cursor: pointer;
+    border-radius: 999px;
+
+    transition: 0.2s ease;
+}
+
+.nav-button:hover {
+    color: #fff;
+}
+
+.nav-button.active {
+    background: #f5f5f5;
+    color: #0a0a0a;
+}
+
+
+/* PAGES */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* HERO */
+
+.hero {
     width: min(900px, 90%);
     margin: 0 auto;
-    padding: 100px 0;
+
+    padding: 110px 0 80px;
+
     text-align: center;
 }
 
-/* HEADER */
-
 .eyebrow {
     color: #777;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 4px;
-    margin-bottom: 24px;
+    margin-bottom: 26px;
 }
 
-h1 {
+.hero h1,
+.stats-header h1 {
     font-size: clamp(60px, 9vw, 110px);
     line-height: 0.9;
     letter-spacing: -6px;
@@ -35,24 +102,33 @@ h1 {
 }
 
 .subtitle {
-    margin-top: 28px;
+    margin-top: 30px;
+
     color: #777;
+
     font-size: 20px;
 }
 
-/* SECTIONS */
 
-.time-section,
-.vibe-section {
-    margin-top: 80px;
+/* SETUP */
+
+.setup-section {
+    width: min(800px, 90%);
+    margin: 0 auto;
 }
 
-h2 {
+.selection-group {
+    margin-bottom: 75px;
+    text-align: center;
+}
+
+.selection-group h2 {
     font-size: 20px;
     margin-bottom: 24px;
 }
 
-/* TIME BUTTONS */
+
+/* TIME */
 
 .time-options {
     display: flex;
@@ -63,12 +139,19 @@ h2 {
 
 .time-option {
     background: transparent;
+
     border: 1px solid #333;
+
     color: #fff;
+
     padding: 18px 28px;
+
     border-radius: 12px;
+
     cursor: pointer;
+
     transition: 0.2s ease;
+
     min-width: 100px;
 }
 
@@ -97,7 +180,8 @@ h2 {
     color: #555;
 }
 
-/* VIBE BUTTONS */
+
+/* VIBES */
 
 .vibe-options {
     display: flex;
@@ -108,11 +192,17 @@ h2 {
 
 .vibe-option {
     background: transparent;
+
     border: 1px solid #333;
+
     color: #aaa;
+
     padding: 12px 20px;
+
     border-radius: 999px;
+
     cursor: pointer;
+
     transition: 0.2s ease;
 }
 
@@ -127,19 +217,30 @@ h2 {
     border-color: #f5f5f5;
 }
 
-/* GENERATE BUTTON */
+
+/* MAIN BUTTON */
 
 .generate-button {
-    margin-top: 70px;
+    display: block;
+
+    margin: 70px auto 0;
+
     background: #f5f5f5;
     color: #0a0a0a;
+
     border: none;
+
     padding: 18px 32px;
+
     border-radius: 999px;
+
     font-size: 14px;
     font-weight: 700;
+
     letter-spacing: 1px;
+
     cursor: pointer;
+
     transition: 0.2s ease;
 }
 
@@ -147,64 +248,419 @@ h2 {
     transform: translateY(-3px);
 }
 
-/* CHALLENGE */
+
+/* CHALLENGE CARD */
 
 .challenge-card {
     display: none;
-    margin: 80px auto 0;
-    max-width: 600px;
-    padding: 50px;
+
+    width: min(700px, 90%);
+
+    margin: 100px auto 120px;
+
     border: 1px solid #292929;
-    border-radius: 20px;
-    text-align: left;
+
+    border-radius: 22px;
+
+    overflow: hidden;
 }
 
 .challenge-card.visible {
     display: block;
+
+    animation: appear 0.4s ease;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.challenge-content {
+    padding: 55px;
 }
 
 .challenge-time {
     color: #777;
+
     font-size: 13px;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
+
     margin-bottom: 18px;
 }
 
-.challenge-card h2 {
-    font-size: 38px;
-    margin-bottom: 16px;
+.challenge-content h2 {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 18px;
 }
 
-.challenge-card > p:not(.challenge-time) {
+.challenge-description {
     color: #999;
+
     font-size: 17px;
-    line-height: 1.6;
+
+    line-height: 1.7;
+
+    max-width: 580px;
+}
+
+
+/* CHALLENGE ACTIONS */
+
+.challenge-actions {
+    margin-top: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.start-button {
+    background: #f5f5f5;
+
+    color: #0a0a0a;
+
+    border: none;
+
+    padding: 15px 25px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
 }
 
 .again-button {
-    margin-top: 30px;
     background: transparent;
+
     border: none;
+
     color: #777;
+
     cursor: pointer;
+
     text-decoration: underline;
 }
+
+.again-button:hover {
+    color: #fff;
+}
+
+
+/* ACTIVE CHALLENGE */
+
+.active-challenge {
+    display: none;
+
+    padding: 55px;
+
+    border-top: 1px solid #292929;
+
+    text-align: center;
+}
+
+.active-challenge.visible {
+    display: block;
+
+    animation: appear 0.3s ease;
+}
+
+.active-label {
+    color: #777;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+.timer {
+    margin: 35px 0 15px;
+
+    font-size: clamp(65px, 12vw, 110px);
+
+    font-weight: 700;
+
+    letter-spacing: -5px;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-status {
+    color: #777;
+
+    margin-bottom: 30px;
+}
+
+.timer-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.timer-button,
+.complete-button {
+    padding: 13px 22px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.timer-button {
+    background: transparent;
+
+    border: 1px solid #333;
+
+    color: #aaa;
+}
+
+.complete-button {
+    background: #f5f5f5;
+
+    border: 1px solid #f5f5f5;
+
+    color: #0a0a0a;
+}
+
+
+/* COMPLETION */
+
+.completion-screen {
+    display: none;
+
+    padding: 70px 50px;
+
+    border-top: 1px solid #292929;
+
+    text-align: center;
+}
+
+.completion-screen.visible {
+    display: block;
+
+    animation: appear 0.4s ease;
+}
+
+.completion-label {
+    color: #777;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.completion-screen h2 {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.completion-screen p:not(.completion-label) {
+    color: #888;
+
+    line-height: 1.6;
+}
+
+
+/* STATS */
+
+.stats-page {
+    width: min(1000px, 90%);
+
+    margin: 0 auto;
+
+    padding: 100px 0;
+}
+
+.stats-header {
+    text-align: center;
+
+    margin-bottom: 80px;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.stat-card {
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.stat-label {
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.stat-card strong {
+    font-size: 52px;
+
+    letter-spacing: -2px;
+}
+
+.stat-description {
+    color: #777;
+
+    font-size: 14px;
+}
+
+.stats-bottom {
+    margin-top: 80px;
+
+    text-align: center;
+}
+
+.stats-bottom h2 {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+.stats-bottom p {
+    color: #777;
+
+    line-height: 1.6;
+}
+
+.reset-button {
+    margin-top: 30px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #555;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    color: #fff;
+}
+
+
+/* FOOTER */
+
+footer {
+    width: min(1100px, 90%);
+
+    margin: 0 auto;
+
+    padding: 35px 0;
+
+    border-top: 1px solid #1d1d1d;
+
+    color: #555;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
 
 /* MOBILE */
 
 @media (max-width: 600px) {
 
-    .container {
-        padding: 70px 0;
+    .navbar {
+        padding: 22px 0;
     }
 
-    h1 {
+    .hero {
+        padding: 80px 0 60px;
+    }
+
+    .hero h1,
+    .stats-header h1 {
         letter-spacing: -4px;
     }
 
-    .challenge-card {
-        padding: 30px;
+    .challenge-content,
+    .active-challenge {
+        padding: 35px 25px;
+    }
+
+    .challenge-content h2 {
+        font-size: 32px;
+    }
+
+    .challenge-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .start-button {
+        width: 100%;
+    }
+
+    .again-button {
+        align-self: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card strong {
+        font-size: 44px;
+    }
+
+    .timer {
+        letter-spacing: -3px;
     }
 
 }
