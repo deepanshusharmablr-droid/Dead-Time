@@ -1,416 +1,446 @@
+/* =========================================================
+   DEAD TIME — INTERACTIVE CHALLENGE ENGINE
+   ========================================================= */
+
+
+/* =========================================================
+   CHALLENGE DATA
+   ========================================================= */
+
 const challenges = [
 
     {
+        id: "morse-code",
+
         title: "Learn Morse Code",
+
         category: "LEARN",
-        description: "Learn enough Morse code to decode and send a short message.",
+
+        description:
+            "Learn the fundamentals of Morse code, practice decoding it, and finish by sending your own message.",
+
         vibes: ["learn", "random"],
+
         time: [20, 30, 60],
 
-        steps: [
+        overview: [
+            "Understand how Morse code works",
+            "Learn the core symbols and patterns",
+            "Decode progressively harder messages",
+            "Practice recalling letters without a reference",
+            "Complete a real-world Morse mission"
+        ],
+
+        modules: [
+
             {
-                title: "Understand the idea",
-                content: "Morse code represents letters using dots and dashes. A dot is a short signal and a dash is a long signal.",
-                example: "E = .\nT = -\nA = .-\nN = -."
+                type: "info",
+
+                title: "Meet the two symbols",
+
+                content: `
+                    <p>
+                        Morse code looks complicated at first, but the entire
+                        system is built from just <strong>two signals</strong>.
+                    </p>
+
+                    <p>
+                        A <strong>dot</strong> is a short signal.
+                        A <strong>dash</strong> is a long signal.
+                    </p>
+
+                    <p>
+                        Every letter is simply a different combination of
+                        dots and dashes.
+                    </p>
+                `,
+
+                example:
+                    "DOT  →  .\nDASH →  -\n\nE → .\nT → -"
             },
+
+
             {
-                title: "Learn the easy letters",
-                content: "Start with the simplest letters. Learn these before trying the harder ones.",
-                example: "A .-\nE .\nI ..\nM --\nN -.\nS ...\nT -\nO ---"
+                type: "quiz",
+
+                title: "Your first check",
+
+                question:
+                    "Which Morse code represents the letter E?",
+
+                choices: [
+                    ".",
+                    "-",
+                    "..",
+                    "--"
+                ],
+
+                answer: ".",
+
+                hint:
+                    "E is the simplest Morse letter. It contains only one short signal.",
+
+                explanation:
+                    "Correct. E = . because it is the simplest possible Morse character."
             },
+
+
             {
-                title: "Decode this",
-                content: "Try to decode the message below without looking anything up.",
-                example: "... --- ...\n\nWhat does it say?"
+                type: "info",
+
+                title: "Start building letters",
+
+                content: `
+                    <p>
+                        Once we combine dots and dashes, we can represent
+                        more letters.
+                    </p>
+
+                    <p>
+                        You don't need to memorize the entire Morse alphabet
+                        immediately. We're going to build it gradually.
+                    </p>
+                `,
+
+                example:
+                    "A → .-\nN → -.\nI → ..\nM → --\n\nS → ...\nO → ---"
             },
+
+
             {
-                title: "Your challenge",
-                content: "Write your name in Morse code. Then try sending it to someone using dots and dashes.",
-                example: "Don't worry about being perfect. The goal is to actually use what you learned."
+                type: "quiz",
+
+                title: "Decode a letter",
+
+                question:
+                    "What letter is represented by .- ?",
+
+                choices: [
+                    "A",
+                    "N",
+                    "I",
+                    "M"
+                ],
+
+                answer: "A",
+
+                hint:
+                    "Remember: A is dot followed by dash.",
+
+                explanation:
+                    "Exactly. A = .-."
+            },
+
+
+            {
+                type: "quiz",
+
+                title: "Another one",
+
+                question:
+                    "What letter is represented by ... ?",
+
+                choices: [
+                    "E",
+                    "I",
+                    "S",
+                    "O"
+                ],
+
+                answer: "S",
+
+                hint:
+                    "Start with E = one dot. I = two dots. Keep going.",
+
+                explanation:
+                    "Correct. S = ... — three dots."
+            },
+
+
+            {
+                type: "info",
+
+                title: "Patterns make Morse easier",
+
+                content: `
+                    <p>
+                        Here's the important trick: Morse isn't random.
+                        Many letters are built by extending simpler ones.
+                    </p>
+
+                    <p>
+                        Think of it like a tree. Start with a single signal,
+                        then add another signal to create new letters.
+                    </p>
+                `,
+
+                example:
+                    "E  .\nI  ..\nS  ...\nH  ....\n\nT  -\nM  --\nO  ---"
+            },
+
+
+            {
+                type: "quiz",
+
+                title: "Pattern recognition",
+
+                question:
+                    "If E is . and I is .., what would S be?",
+
+                choices: [
+                    ".-",
+                    "...",
+                    "--",
+                    "-."
+                ],
+
+                answer: "...",
+
+                hint:
+                    "We're adding another dot each time.",
+
+                explanation:
+                    "Correct. E = ., I = .., S = ..."
+            },
+
+
+            {
+                type: "input",
+
+                title: "Decode your first word",
+
+                question:
+                    "Decode this Morse message:",
+
+                example:
+                    "... --- ...",
+
+                placeholder:
+                    "Type the word here...",
+
+                answer: "SOS",
+
+                hint:
+                    "Break it into three letters: ... / --- / ...",
+
+                explanation:
+                    "Correct. ... = S, --- = O, ... = S."
+            },
+
+
+            {
+                type: "info",
+
+                title: "How words work",
+
+                content: `
+                    <p>
+                        Morse separates letters with spaces.
+                    </p>
+
+                    <p>
+                        So when you see:
+                    </p>
+
+                    <p>
+                        <strong>.... . .-.. .-.. ---</strong>
+                    </p>
+
+                    <p>
+                        you should read it one chunk at a time.
+                    </p>
+                `,
+
+                example:
+                    ".... = H\n. = E\n.-.. = L\n.-.. = L\n--- = O\n\nHELLO"
+            },
+
+
+            {
+                type: "input",
+
+                title: "Decode HELLO",
+
+                question:
+                    "What does this message say?",
+
+                example:
+                    ".... . .-.. .-.. ---",
+
+                placeholder:
+                    "Type your answer...",
+
+                answer: "HELLO",
+
+                hint:
+                    "Decode each group separately.",
+
+                explanation:
+                    "Correct. You just decoded HELLO."
+            },
+
+
+            {
+                type: "practice",
+
+                title: "Build your recall",
+
+                duration: 90,
+
+                content: `
+                    <p>
+                        For the next 90 seconds, try to memorize these
+                        eight letters:
+                    </p>
+
+                    <p>
+                        E, T, A, N, I, M, S, O
+                    </p>
+
+                    <p>
+                        Don't worry about speed. Focus on recognizing the
+                        patterns.
+                    </p>
+                `
+            },
+
+
+            {
+                type: "quiz",
+
+                title: "No cheat sheet",
+
+                question:
+                    "Without looking back, what is O in Morse code?",
+
+                choices: [
+                    "...",
+                    "--",
+                    "---",
+                    ".-"
+                ],
+
+                answer: "---",
+
+                hint:
+                    "O is three long signals.",
+
+                explanation:
+                    "Correct. O = ---."
+            },
+
+
+            {
+                type: "input",
+
+                title: "Encode a word",
+
+                question:
+                    "Write the Morse code for SOS.",
+
+                placeholder:
+                    "Example: ... --- ...",
+
+                answer: "... --- ...",
+
+                hint:
+                    "S = ..., O = --- and S = ...",
+
+                explanation:
+                    "Exactly. SOS = ... --- ..."
+            },
+
+
+            {
+                type: "mission",
+
+                title: "Your final mission",
+
+                content: `
+                    <p>
+                        You've now learned enough Morse code to actually use it.
+                    </p>
+
+                    <p>
+                        Your mission is to write your own name in Morse code.
+                        Then write a short message of at least three letters.
+                    </p>
+
+                    <p>
+                        Try doing it <strong>without looking anything up</strong>.
+                    </p>
+                `,
+
+                instruction:
+                    "Complete the Morse exercise in real life before continuing."
+            },
+
+
+            {
+                type: "reflection",
+
+                title: "Lock it in",
+
+                question:
+                    "In your own words, explain how Morse code represents letters.",
+
+                placeholder:
+                    "Write what you learned..."
             }
-        ]
-    },
 
-
-    {
-        title: "Create a Ridiculous Business",
-        category: "RANDOM",
-        description: "Invent a completely unnecessary business and turn it into a surprisingly convincing idea.",
-        vibes: ["random", "chill"],
-        time: [20, 30, 60],
-
-        steps: [
-            {
-                title: "Find a stupid problem",
-                content: "Think of a tiny, ridiculous inconvenience that people experience.",
-                example: "Example: You never know which side of the pillow is colder."
-            },
-            {
-                title: "Invent the solution",
-                content: "Create a product or service that solves your ridiculous problem.",
-                example: "A pillow that automatically flips itself every 5 minutes."
-            },
-            {
-                title: "Give it a name",
-                content: "Come up with a brand name. Make it sound like something that could actually exist.",
-                example: "CoolSide™"
-            },
-            {
-                title: "Pitch it",
-                content: "You have 60 seconds. Explain what the product does, who buys it and why they need it.",
-                example: "If you can make someone laugh AND understand the business, you've succeeded."
-            }
-        ]
-    },
-
-
-    {
-        title: "Learn to Juggle",
-        category: "MOVE",
-        description: "Learn the basic three-object juggling pattern from scratch.",
-        vibes: ["move", "random"],
-        time: [20, 30, 60],
-
-        steps: [
-            {
-                title: "Start with one",
-                content: "Take one soft object. Throw it from one hand to the other in a gentle arc.",
-                example: "The object should peak around eye level. Focus on consistency."
-            },
-            {
-                title: "Use two objects",
-                content: "Hold one object in each hand. Throw the first object. When it reaches its highest point, throw the second.",
-                example: "Throw → throw → catch → catch."
-            },
-            {
-                title: "Add the third",
-                content: "Now hold two objects in one hand and one in the other. Begin the same pattern.",
-                example: "The trick is not speed. Give each object enough time to travel."
-            },
-            {
-                title: "Your challenge",
-                content: "Try to complete three clean catches without stopping. Then try five.",
-                example: "Drop it? Reset. There's no penalty."
-            }
-        ]
-    },
-
-
-    {
-        title: "Photograph the Ordinary",
-        category: "CHILL",
-        description: "Train yourself to notice things you normally ignore.",
-        vibes: ["chill", "random"],
-        time: [10, 20, 30],
-
-        steps: [
-            {
-                title: "Look around",
-                content: "Take a slow look around you. Don't take a photo yet.",
-                example: "Look for shapes, shadows, textures, reflections and small details."
-            },
-            {
-                title: "Find something boring",
-                content: "Choose something you normally wouldn't photograph.",
-                example: "A staircase. A cracked wall. A chair. A coffee cup."
-            },
-            {
-                title: "Change your angle",
-                content: "Take the photo from somewhere unusual.",
-                example: "Get low. Get close. Shoot through something. Try a reflection."
-            },
-            {
-                title: "Your challenge",
-                content: "Take 5 photos of ordinary things. Pick the one that looks most interesting.",
-                example: "The goal isn't a beautiful photo. It's noticing something."
-            }
-        ]
-    },
-
-
-    {
-        title: "Learn 10 Words",
-        category: "LEARN",
-        description: "Learn ten useful words in a language you've always wanted to know.",
-        vibes: ["learn"],
-        time: [10, 20, 30],
-
-        steps: [
-            {
-                title: "Choose your language",
-                content: "Pick a language you've always been curious about.",
-                example: "Spanish, Japanese, Korean, French, German — anything."
-            },
-            {
-                title: "Choose useful words",
-                content: "Learn words you might actually use.",
-                example: "Hello • Thank you • Yes • No • Sorry • Please"
-            },
-            {
-                title: "Say them out loud",
-                content: "Pronounce each word several times. Speaking helps memory.",
-                example: "Don't worry about having a perfect accent."
-            },
-            {
-                title: "Test yourself",
-                content: "Hide the translations and try to recall all ten words.",
-                example: "If you remember 7/10, you've already learned something new."
-            }
-        ]
-    },
-
-
-    {
-        title: "Take a Different Route",
-        category: "MOVE",
-        description: "Break your normal routine by exploring a route you've never taken.",
-        vibes: ["move", "random"],
-        time: [20, 30, 60],
-
-        steps: [
-            {
-                title: "Pick a destination",
-                content: "Choose somewhere you already visit regularly.",
-                example: "A café, gym, college building, shop or park."
-            },
-            {
-                title: "Break the route",
-                content: "Choose a road, lane or path you've never taken before.",
-                example: "You don't need to go far. Just make one meaningful change."
-            },
-            {
-                title: "Notice three things",
-                content: "While walking, deliberately notice three things you've never seen before.",
-                example: "A shop, a building, a tree, a sign, a person, anything."
-            },
-            {
-                title: "Your challenge",
-                content: "Get to your destination without using your normal route.",
-                example: "The point isn't distance. It's breaking autopilot."
-            }
-        ]
-    },
-
-
-    {
-        title: "Build the Perfect Playlist",
-        category: "CHILL",
-        description: "Create a playlist for a very specific moment instead of just throwing songs together.",
-        vibes: ["chill"],
-        time: [20, 30],
-
-        steps: [
-            {
-                title: "Choose the moment",
-                content: "Pick one extremely specific situation.",
-                example: "3 AM drive home.\nFirst day in a new city.\nWalking alone after a bad day."
-            },
-            {
-                title: "Choose the opening",
-                content: "Find the song that should play first.",
-                example: "The first song should immediately establish the mood."
-            },
-            {
-                title: "Build the arc",
-                content: "Add songs so the playlist feels like a journey rather than a random collection.",
-                example: "Beginning → build → peak → ending."
-            },
-            {
-                title: "Name it",
-                content: "Give your playlist a name that makes you want to listen to it.",
-                example: "Avoid boring names like 'My Playlist'."
-            }
-        ]
-    },
-
-
-    {
-        title: "Design Your Dream Room",
-        category: "RANDOM",
-        description: "Redesign your room with no budget limit and no practical restrictions.",
-        vibes: ["random", "chill"],
-        time: [20, 30],
-
-        steps: [
-            {
-                title: "Start with the essentials",
-                content: "Write down the five things your perfect room absolutely needs.",
-                example: "Huge desk • Reading chair • Plants • Projector • Speakers"
-            },
-            {
-                title: "Remove the boring",
-                content: "Decide what you'd remove from your current room.",
-                example: "If you could delete anything, what would disappear?"
-            },
-            {
-                title: "Add one ridiculous feature",
-                content: "Give your room one completely unnecessary feature.",
-                example: "A hidden door. Indoor waterfall. Ceiling hammock."
-            },
-            {
-                title: "Draw it",
-                content: "Sketch the room from above. It doesn't need to look good.",
-                example: "You now have a rough blueprint of your dream room."
-            }
-        ]
-    },
-
-
-    {
-        title: "Ask Someone a Real Question",
-        category: "SOCIAL",
-        description: "Have a conversation that goes slightly deeper than the usual small talk.",
-        vibes: ["social"],
-        time: [10, 20],
-
-        steps: [
-            {
-                title: "Choose someone",
-                content: "Pick someone you already know but don't normally have deep conversations with.",
-                example: "A friend, classmate, sibling or teammate."
-            },
-            {
-                title: "Ask this",
-                content: "Ask them one question you've genuinely never asked before.",
-                example: "What's something you've changed your mind about recently?"
-            },
-            {
-                title: "Don't interrupt",
-                content: "Let them finish their answer. Don't immediately turn the conversation back to yourself.",
-                example: "Your job is to be curious."
-            },
-            {
-                title: "Follow up",
-                content: "Ask one natural follow-up question based on what they said.",
-                example: "Why do you think that changed?"
-            }
-        ]
-    },
-
-
-    {
-        title: "Create a 60-Second Movie",
-        category: "RANDOM",
-        description: "Make a tiny one-minute film using nothing but your phone.",
-        vibes: ["random", "chill"],
-        time: [30, 60],
-
-        steps: [
-            {
-                title: "Choose a subject",
-                content: "Pick something completely ordinary.",
-                example: "Your shoes. A coffee cup. Your street. Your friend."
-            },
-            {
-                title: "Give it a story",
-                content: "Decide what happens at the beginning, middle and end.",
-                example: "Something is missing → search → discovery."
-            },
-            {
-                title: "Shoot 5 clips",
-                content: "Record five short clips from different angles.",
-                example: "Keep each clip around 5–10 seconds."
-            },
-            {
-                title: "Edit",
-                content: "Put the clips together on your phone. Add music if you want.",
-                example: "Your finished film should be around one minute."
-            }
-        ]
-    },
-
-
-    {
-        title: "Learn a Magic Trick",
-        category: "LEARN",
-        description: "Learn one simple trick and practice it until you can perform it smoothly.",
-        vibes: ["learn", "random"],
-        time: [20, 30, 60],
-
-        steps: [
-            {
-                title: "Choose one trick",
-                content: "Find a beginner-friendly card, coin or object trick.",
-                example: "Don't choose something complicated. One simple trick is enough."
-            },
-            {
-                title: "Understand the secret",
-                content: "Learn exactly why the trick works before worrying about performance.",
-                example: "Understanding the mechanism makes practice much easier."
-            },
-            {
-                title: "Practice slowly",
-                content: "Perform the trick in slow motion several times.",
-                example: "Smooth beats fast."
-            },
-            {
-                title: "Perform it",
-                content: "Try performing it without looking at instructions.",
-                example: "If you mess up, reset and try again."
-            }
-        ]
-    },
-
-
-    {
-        title: "Make Something Useless",
-        category: "RANDOM",
-        description: "Build something completely unnecessary using whatever you have around you.",
-        vibes: ["random", "chill"],
-        time: [20, 30, 60],
-
-        steps: [
-            {
-                title: "Find materials",
-                content: "Look around your room and choose three random objects.",
-                example: "Paper + tape + cardboard.\nOr anything else."
-            },
-            {
-                title: "Choose a purpose",
-                content: "Give your invention a ridiculous purpose.",
-                example: "A machine that prevents you from losing the TV remote."
-            },
-            {
-                title: "Build it",
-                content: "Spend 10–20 minutes physically making your invention.",
-                example: "It doesn't need to work. It needs to exist."
-            },
-            {
-                title: "Name it",
-                content: "Give your creation a product name and explain what it does.",
-                example: "Congratulations. You are now a terrible inventor."
-            }
         ]
     }
 
 ];
 
 
-/* STATE */
+/* =========================================================
+   STATE
+   ========================================================= */
 
 let selectedTime = null;
 let selectedVibe = null;
 
 let currentChallenge = null;
-let currentStep = 0;
+let currentModule = 0;
+
+let moduleCompleted = false;
+let moduleScore = 0;
+let totalQuestions = 0;
+let correctQuestions = 0;
 
 let timerInterval = null;
 let remainingSeconds = 0;
-let isPaused = false;
+let isPracticeTimerRunning = false;
 
 
-/* ELEMENTS */
+/* =========================================================
+   DOM ELEMENTS
+   ========================================================= */
 
-const timeButtons = document.querySelectorAll(".time-option");
-const vibeButtons = document.querySelectorAll(".vibe-option");
-const navButtons = document.querySelectorAll(".nav-button");
+const timeButtons =
+    document.querySelectorAll(".time-option");
 
-const generateButton = document.getElementById("generateButton");
-const againButton = document.getElementById("againButton");
+const vibeButtons =
+    document.querySelectorAll(".vibe-option");
 
-const startButton = document.getElementById("startButton");
-const pauseButton = document.getElementById("pauseButton");
-const nextButton = document.getElementById("nextButton");
+const navButtons =
+    document.querySelectorAll(".nav-button");
+
+const generateButton =
+    document.getElementById("generateButton");
+
+const againButton =
+    document.getElementById("againButton");
+
+const startButton =
+    document.getElementById("startButton");
+
+const continueButton =
+    document.getElementById("continueButton");
+
+const hintButton =
+    document.getElementById("hintButton");
 
 const newChallengeButton =
     document.getElementById("newChallengeButton");
@@ -421,17 +451,17 @@ const challengeCard =
 const challengeIntro =
     document.getElementById("challengeIntro");
 
-const challengeWorkspace =
-    document.getElementById("challengeWorkspace");
+const engine =
+    document.getElementById("engine");
 
 const completionScreen =
     document.getElementById("completionScreen");
 
-const challengeTime =
-    document.getElementById("challengeTime");
-
 const challengeCategory =
     document.getElementById("challengeCategory");
+
+const challengeTime =
+    document.getElementById("challengeTime");
 
 const challengeTitle =
     document.getElementById("challengeTitle");
@@ -439,74 +469,46 @@ const challengeTitle =
 const challengeDescription =
     document.getElementById("challengeDescription");
 
-const workspaceCategory =
-    document.getElementById("workspaceCategory");
+const challengeOverview =
+    document.getElementById("challengeOverview");
 
-const workspaceTitle =
-    document.getElementById("workspaceTitle");
+const moduleType =
+    document.getElementById("moduleType");
 
-const timer =
-    document.getElementById("timer");
+const moduleTitle =
+    document.getElementById("moduleTitle");
 
-const stepCounter =
-    document.getElementById("stepCounter");
+const engineTimer =
+    document.getElementById("engineTimer");
 
-const progressPercent =
-    document.getElementById("progressPercent");
+const moduleCounter =
+    document.getElementById("moduleCounter");
+
+const progressPercentage =
+    document.getElementById("progressPercentage");
 
 const progressFill =
     document.getElementById("progressFill");
 
-const stepLabel =
-    document.getElementById("stepLabel");
+const learningArea =
+    document.getElementById("learningArea");
 
-const stepTitle =
-    document.getElementById("stepTitle");
-
-const stepContent =
-    document.getElementById("stepContent");
-
-const stepExample =
-    document.getElementById("stepExample");
+const feedback =
+    document.getElementById("feedback");
 
 const completionMessage =
     document.getElementById("completionMessage");
 
+const completionMinutes =
+    document.getElementById("completionMinutes");
 
-/* STORAGE */
-
-function getStats() {
-
-    const saved =
-        localStorage.getItem("deadTimeStats");
-
-    if (!saved) {
-
-        return {
-            totalChallenges: 0,
-            totalMinutes: 0,
-            completions: [],
-            currentStreak: 0,
-            longestStreak: 0
-        };
-
-    }
-
-    return JSON.parse(saved);
-}
+const completionScore =
+    document.getElementById("completionScore");
 
 
-function saveStats(stats) {
-
-    localStorage.setItem(
-        "deadTimeStats",
-        JSON.stringify(stats)
-    );
-
-}
-
-
-/* TIME SELECTION */
+/* =========================================================
+   TIME SELECTION
+   ========================================================= */
 
 timeButtons.forEach(button => {
 
@@ -526,7 +528,9 @@ timeButtons.forEach(button => {
 });
 
 
-/* VIBE SELECTION */
+/* =========================================================
+   VIBE SELECTION
+   ========================================================= */
 
 vibeButtons.forEach(button => {
 
@@ -546,7 +550,9 @@ vibeButtons.forEach(button => {
 });
 
 
-/* NAVIGATION */
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 navButtons.forEach(button => {
 
@@ -561,7 +567,8 @@ navButtons.forEach(button => {
 
         button.classList.add("active");
 
-        document.querySelectorAll(".page")
+        document
+            .querySelectorAll(".page")
             .forEach(section =>
                 section.classList.remove("active")
             );
@@ -571,7 +578,7 @@ navButtons.forEach(button => {
             .classList.add("active");
 
         if (page === "stats") {
-            updateStatsPage();
+            updateStats();
         }
 
         window.scrollTo({
@@ -584,51 +591,50 @@ navButtons.forEach(button => {
 });
 
 
-/* FIND CHALLENGE */
+/* =========================================================
+   FIND CHALLENGE
+   ========================================================= */
 
 function findChallenge() {
 
-    let possibleChallenges =
+    let possible =
         challenges.filter(challenge => {
 
-            const matchesTime =
+            const timeMatch =
                 selectedTime === null ||
                 challenge.time.includes(selectedTime);
 
-            const matchesVibe =
+            const vibeMatch =
                 selectedVibe === null ||
                 selectedVibe === "random" ||
                 challenge.vibes.includes(selectedVibe);
 
-            return matchesTime && matchesVibe;
+            return timeMatch && vibeMatch;
 
         });
 
 
-    if (possibleChallenges.length === 0) {
-        possibleChallenges = challenges;
+    if (possible.length === 0) {
+        possible = challenges;
     }
 
 
-    const randomIndex =
-        Math.floor(
-            Math.random() *
-            possibleChallenges.length
-        );
-
-
     currentChallenge =
-        possibleChallenges[randomIndex];
+        possible[
+            Math.floor(
+                Math.random() * possible.length
+            )
+        ];
+
+
+    challengeCategory.textContent =
+        currentChallenge.category;
 
 
     challengeTime.textContent =
         selectedTime
             ? `${selectedTime} MINUTES`
             : "YOUR FREE TIME";
-
-
-    challengeCategory.textContent =
-        currentChallenge.category;
 
 
     challengeTitle.textContent =
@@ -639,16 +645,20 @@ function findChallenge() {
         currentChallenge.description;
 
 
+    challengeOverview.innerHTML =
+        currentChallenge.overview
+            .map(item =>
+                `<div>→ ${item}</div>`
+            )
+            .join("");
+
+
     challengeIntro.style.display =
         "block";
 
-    challengeWorkspace.classList.remove(
-        "visible"
-    );
+    engine.classList.remove("visible");
 
-    completionScreen.classList.remove(
-        "visible"
-    );
+    completionScreen.classList.remove("visible");
 
 
     challengeCard.classList.add("visible");
@@ -673,7 +683,9 @@ againButton.addEventListener(
 );
 
 
-/* START CHALLENGE */
+/* =========================================================
+   START CHALLENGE
+   ========================================================= */
 
 startButton.addEventListener(
     "click",
@@ -683,23 +695,18 @@ startButton.addEventListener(
 
 function startChallenge() {
 
-    if (!currentChallenge) {
-        return;
-    }
+    currentModule = 0;
 
+    moduleScore = 0;
 
-    currentStep = 0;
+    correctQuestions = 0;
 
-
-    const minutes =
-        selectedTime || 10;
-
-
-    remainingSeconds =
-        minutes * 60;
-
-
-    isPaused = false;
+    totalQuestions =
+        currentChallenge.modules.filter(
+            module =>
+                module.type === "quiz" ||
+                module.type === "input"
+        ).length;
 
 
     challengeIntro.style.display =
@@ -709,140 +716,604 @@ function startChallenge() {
         "visible"
     );
 
-    challengeWorkspace.classList.add(
+    engine.classList.add(
         "visible"
     );
 
 
-    workspaceCategory.textContent =
-        currentChallenge.category;
-
-    workspaceTitle.textContent =
-        currentChallenge.title;
-
-
-    pauseButton.textContent =
-        "PAUSE";
-
-
-    updateTimer();
-
-    renderStep();
-
-
-    clearInterval(timerInterval);
-
-
-    timerInterval =
-        setInterval(() => {
-
-            if (!isPaused) {
-
-                remainingSeconds--;
-
-                updateTimer();
-
-                if (remainingSeconds <= 0) {
-
-                    clearInterval(timerInterval);
-
-                    timer.textContent =
-                        "00:00";
-
-                    pauseButton.textContent =
-                        "TIME'S UP";
-
-                    pauseButton.disabled =
-                        true;
-
-                }
-
-            }
-
-        }, 1000);
+    renderModule();
 
 }
 
 
-/* RENDER STEP */
+/* =========================================================
+   RENDER MODULE
+   ========================================================= */
 
-function renderStep() {
+function renderModule() {
 
-    const step =
-        currentChallenge.steps[currentStep];
-
-
-    const totalSteps =
-        currentChallenge.steps.length;
+    clearTimers();
 
 
-    const stepNumber =
-        currentStep + 1;
+    const module =
+        currentChallenge.modules[currentModule];
 
 
-    const percentage =
+    moduleCompleted = false;
+
+    feedback.className = "feedback";
+
+    feedback.textContent = "";
+
+
+    moduleType.textContent =
+        getModuleLabel(module.type);
+
+
+    moduleTitle.textContent =
+        module.title;
+
+
+    moduleCounter.textContent =
+        `${currentModule + 1} / ${currentChallenge.modules.length}`;
+
+
+    const percent =
         Math.round(
-            (stepNumber / totalSteps) * 100
+            (currentModule /
+                currentChallenge.modules.length) *
+            100
         );
 
 
-    stepCounter.textContent =
-        `STEP ${stepNumber} / ${totalSteps}`;
-
-
-    progressPercent.textContent =
-        `${percentage}%`;
-
+    progressPercentage.textContent =
+        `${percent}%`;
 
     progressFill.style.width =
-        `${percentage}%`;
+        `${percent}%`;
 
 
-    stepLabel.textContent =
-        `STEP ${stepNumber}`;
+    continueButton.disabled = false;
+
+    continueButton.textContent =
+        currentModule ===
+        currentChallenge.modules.length - 1
+            ? "FINISH →"
+            : "CONTINUE →";
 
 
-    stepTitle.textContent =
-        step.title;
+    hintButton.style.visibility =
+        module.hint ? "visible" : "hidden";
 
 
-    stepContent.textContent =
-        step.content;
+    learningArea.innerHTML = "";
 
 
-    stepExample.textContent =
-        step.example;
+    renderModuleContent(module);
+
+}
 
 
-    if (currentStep === totalSteps - 1) {
+/* =========================================================
+   MODULE LABELS
+   ========================================================= */
 
-        nextButton.textContent =
-            "FINISH CHALLENGE ✓";
+function getModuleLabel(type) {
 
-    } else {
+    const labels = {
 
-        nextButton.textContent =
-            "NEXT STEP →";
+        info: "LEARN",
+
+        quiz: "CHECKPOINT",
+
+        input: "PRACTICE",
+
+        practice: "PRACTICE",
+
+        mission: "MISSION",
+
+        reflection: "REFLECTION"
+
+    };
+
+
+    return labels[type] || "CHALLENGE";
+
+}
+
+
+/* =========================================================
+   RENDER CONTENT
+   ========================================================= */
+
+function renderModuleContent(module) {
+
+
+    /* INFO */
+
+    if (module.type === "info") {
+
+        learningArea.innerHTML = `
+
+            <div class="module-content">
+
+                ${module.content}
+
+                <div class="example-box">
+                    ${module.example}
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* QUIZ */
+
+    if (module.type === "quiz") {
+
+        learningArea.innerHTML = `
+
+            <div class="question-box">
+
+                <p class="question-text">
+                    ${module.question}
+                </p>
+
+                <div class="choice-grid">
+
+                    ${module.choices
+                        .map(choice => `
+                            <button
+                                class="choice-button"
+                                data-answer="${choice}">
+                                ${choice}
+                            </button>
+                        `)
+                        .join("")}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        document
+            .querySelectorAll(".choice-button")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () =>
+                        checkChoice(
+                            button,
+                            module
+                        )
+                );
+
+            });
+
+
+        continueButton.disabled = true;
+
+        return;
+
+    }
+
+
+    /* INPUT */
+
+    if (module.type === "input") {
+
+        learningArea.innerHTML = `
+
+            <div class="question-box">
+
+                <p class="question-text">
+                    ${module.question}
+                </p>
+
+                ${
+                    module.example
+                        ? `
+                            <div class="example-box">
+                                ${module.example}
+                            </div>
+                          `
+                        : ""
+                }
+
+                <input
+                    class="answer-input"
+                    id="answerInput"
+                    placeholder="${module.placeholder || "Type your answer..."}"
+                    autocomplete="off"
+                >
+
+            </div>
+
+        `;
+
+
+        continueButton.textContent =
+            "CHECK ANSWER";
+
+
+        continueButton.disabled = false;
+
+
+        return;
+
+    }
+
+
+    /* PRACTICE */
+
+    if (module.type === "practice") {
+
+        learningArea.innerHTML = `
+
+            <div class="module-content">
+
+                ${module.content}
+
+            </div>
+
+            <div class="practice-timer">
+
+                <div
+                    class="practice-time"
+                    id="practiceTime">
+                    ${formatSeconds(module.duration)}
+                </div>
+
+                <button
+                    class="timer-start-button"
+                    id="practiceStart">
+                    START PRACTICE
+                </button>
+
+            </div>
+
+        `;
+
+
+        continueButton.disabled = true;
+
+
+        document
+            .getElementById("practiceStart")
+            .addEventListener(
+                "click",
+                startPracticeTimer
+            );
+
+
+        return;
+
+    }
+
+
+    /* MISSION */
+
+    if (module.type === "mission") {
+
+        learningArea.innerHTML = `
+
+            <div class="mission-box">
+
+                <h3>
+                    Your mission
+                </h3>
+
+                <div class="module-content">
+                    ${module.content}
+                </div>
+
+                <label class="mission-check">
+
+                    <input
+                        type="checkbox"
+                        id="missionCheck">
+
+                    <span>
+                        ${module.instruction}
+                    </span>
+
+                </label>
+
+            </div>
+
+        `;
+
+
+        continueButton.disabled = true;
+
+
+        document
+            .getElementById("missionCheck")
+            .addEventListener(
+                "change",
+                event => {
+
+                    continueButton.disabled =
+                        !event.target.checked;
+
+                }
+            );
+
+
+        return;
+
+    }
+
+
+    /* REFLECTION */
+
+    if (module.type === "reflection") {
+
+        learningArea.innerHTML = `
+
+            <div class="question-box">
+
+                <p class="question-text">
+                    ${module.question}
+                </p>
+
+                <textarea
+                    class="reflection-input"
+                    id="reflectionInput"
+                    placeholder="${module.placeholder}">
+                </textarea>
+
+            </div>
+
+        `;
+
+
+        continueButton.disabled = true;
+
+
+        document
+            .getElementById("reflectionInput")
+            .addEventListener(
+                "input",
+                event => {
+
+                    continueButton.disabled =
+                        event.target.value
+                            .trim()
+                            .length < 5;
+
+                }
+            );
 
     }
 
 }
 
 
-/* NEXT STEP */
+/* =========================================================
+   QUIZ CHECKING
+   ========================================================= */
 
-nextButton.addEventListener(
+function checkChoice(button, module) {
+
+    const answer =
+        button.dataset.answer;
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".choice-button"
+        );
+
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+
+    if (
+        answer.toLowerCase() ===
+        module.answer.toLowerCase()
+    ) {
+
+        button.classList.add("correct");
+
+        showFeedback(
+            `✓ ${module.explanation}`,
+            "success"
+        );
+
+
+        correctQuestions++;
+
+        moduleScore++;
+
+        moduleCompleted = true;
+
+        continueButton.disabled = false;
+
+
+    } else {
+
+        button.classList.add("wrong");
+
+
+        showFeedback(
+            `Not quite. ${module.hint || "Take another look and try again."}`,
+            "error"
+        );
+
+
+        setTimeout(() => {
+
+            buttons.forEach(btn => {
+
+                btn.disabled = false;
+
+                btn.classList.remove(
+                    "wrong"
+                );
+
+            });
+
+        }, 900);
+
+    }
+
+}
+
+
+/* =========================================================
+   INPUT CHECKING
+   ========================================================= */
+
+function checkInput(module) {
+
+    const input =
+        document.getElementById(
+            "answerInput"
+        );
+
+
+    if (!input) {
+        return;
+    }
+
+
+    const userAnswer =
+        input.value
+            .trim()
+            .toUpperCase();
+
+
+    const correctAnswer =
+        module.answer
+            .trim()
+            .toUpperCase();
+
+
+    if (
+        userAnswer === correctAnswer
+    ) {
+
+        showFeedback(
+            `✓ ${module.explanation}`,
+            "success"
+        );
+
+
+        correctQuestions++;
+
+        moduleScore++;
+
+        moduleCompleted = true;
+
+        continueButton.textContent =
+            currentModule ===
+            currentChallenge.modules.length - 1
+                ? "FINISH →"
+                : "CONTINUE →";
+
+
+    } else {
+
+        showFeedback(
+            `Not quite. ${module.hint}`,
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+function showFeedback(
+    message,
+    type
+) {
+
+    feedback.textContent =
+        message;
+
+    feedback.className =
+        `feedback visible ${type}`;
+
+}
+
+
+/* =========================================================
+   HINT
+   ========================================================= */
+
+hintButton.addEventListener(
     "click",
     () => {
 
-        if (!currentChallenge) {
+        const module =
+            currentChallenge
+                .modules[currentModule];
+
+
+        if (!module.hint) {
             return;
         }
 
 
+        showFeedback(
+            `Hint: ${module.hint}`,
+            "success"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CONTINUE
+   ========================================================= */
+
+continueButton.addEventListener(
+    "click",
+    () => {
+
+        const module =
+            currentChallenge
+                .modules[currentModule];
+
+
+        /* INPUT */
+
         if (
-            currentStep >=
-            currentChallenge.steps.length - 1
+            module.type === "input" &&
+            !moduleCompleted
+        ) {
+
+            checkInput(module);
+
+            if (!moduleCompleted) {
+                return;
+            }
+
+        }
+
+
+        /* LAST MODULE */
+
+        if (
+            currentModule >=
+            currentChallenge.modules.length - 1
         ) {
 
             completeChallenge();
@@ -852,70 +1323,116 @@ nextButton.addEventListener(
         }
 
 
-        currentStep++;
+        currentModule++;
 
-        renderStep();
+        renderModule();
 
-    }
-);
-
-
-/* PAUSE */
-
-pauseButton.addEventListener(
-    "click",
-    () => {
-
-        if (remainingSeconds <= 0) {
-            return;
-        }
-
-
-        isPaused =
-            !isPaused;
-
-
-        pauseButton.textContent =
-            isPaused
-                ? "RESUME"
-                : "PAUSE";
+        window.scrollTo({
+            top:
+                challengeCard.offsetTop - 40,
+            behavior: "smooth"
+        });
 
     }
 );
 
 
-/* TIMER */
+/* =========================================================
+   PRACTICE TIMER
+   ========================================================= */
 
-function updateTimer() {
+function startPracticeTimer() {
 
-    const minutes =
-        Math.floor(
-            remainingSeconds / 60
+    if (isPracticeTimerRunning) {
+        return;
+    }
+
+
+    isPracticeTimerRunning = true;
+
+
+    const module =
+        currentChallenge
+            .modules[currentModule];
+
+
+    remainingSeconds =
+        module.duration;
+
+
+    const startButton =
+        document.getElementById(
+            "practiceStart"
         );
 
-    const seconds =
-        remainingSeconds % 60;
+
+    startButton.disabled = true;
+
+    startButton.textContent =
+        "PRACTICING...";
 
 
-    timer.textContent =
-        `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    timerInterval =
+        setInterval(() => {
+
+            remainingSeconds--;
+
+
+            const display =
+                document.getElementById(
+                    "practiceTime"
+                );
+
+
+            if (display) {
+
+                display.textContent =
+                    formatSeconds(
+                        remainingSeconds
+                    );
+
+            }
+
+
+            if (remainingSeconds <= 0) {
+
+                clearTimers();
+
+                startButton.textContent =
+                    "PRACTICE COMPLETE ✓";
+
+                moduleCompleted = true;
+
+                continueButton.disabled =
+                    false;
+
+                showFeedback(
+                    "Nice. You completed the practice period.",
+                    "success"
+                );
+
+            }
+
+        }, 1000);
 
 }
 
 
-/* COMPLETE */
+/* =========================================================
+   COMPLETE CHALLENGE
+   ========================================================= */
 
 function completeChallenge() {
 
-    clearInterval(timerInterval);
-
-
-    const stats =
-        getStats();
+    clearTimers();
 
 
     const minutes =
         selectedTime || 10;
+
+
+    const stats =
+        getStats();
 
 
     stats.totalChallenges++;
@@ -933,9 +1450,18 @@ function completeChallenge() {
 
         date: today,
 
+        title: currentChallenge.title,
+
         minutes: minutes,
 
-        title: currentChallenge.title
+        score:
+            totalQuestions > 0
+                ? Math.round(
+                    (correctQuestions /
+                        totalQuestions) *
+                    100
+                )
+                : 100
 
     });
 
@@ -945,35 +1471,58 @@ function completeChallenge() {
     saveStats(stats);
 
 
-    challengeWorkspace.classList.remove(
+    const score =
+        totalQuestions > 0
+            ? Math.round(
+                (correctQuestions /
+                    totalQuestions) *
+                100
+            )
+            : 100;
+
+
+    completionMinutes.textContent =
+        minutes;
+
+
+    completionScore.textContent =
+        `${score}%`;
+
+
+    completionMessage.textContent =
+        `You completed "${currentChallenge.title}" and reclaimed ${minutes} minutes. More importantly, you actually did something with them.`;
+
+
+    engine.classList.remove(
         "visible"
     );
-
 
     completionScreen.classList.add(
         "visible"
     );
 
 
-    completionMessage.textContent =
-        `${minutes} minutes reclaimed. That's time you didn't waste.`;
-
-
-    updateStatsPage();
+    updateStats();
 
 }
 
 
-/* STREAK */
+/* =========================================================
+   STREAK
+   ========================================================= */
 
 function calculateStreak(stats) {
 
     const dates =
-        [...new Set(
-            stats.completions.map(
-                item => item.date
+        [
+            ...new Set(
+                stats.completions.map(
+                    item => item.date
+                )
             )
-        )].sort().reverse();
+        ]
+        .sort()
+        .reverse();
 
 
     if (dates.length === 0) {
@@ -1002,8 +1551,10 @@ function calculateStreak(stats) {
 
 
         const difference =
-            (current - previous) /
-            (1000 * 60 * 60 * 24);
+            Math.round(
+                (current - previous) /
+                (1000 * 60 * 60 * 24)
+            );
 
 
         if (difference === 1) {
@@ -1030,11 +1581,13 @@ function calculateStreak(stats) {
 
 
     const daysSinceLast =
-        (
-            new Date(today) -
-            new Date(lastDate)
-        ) /
-        (1000 * 60 * 60 * 24);
+        Math.round(
+            (
+                new Date(today) -
+                new Date(lastDate)
+            ) /
+            (1000 * 60 * 60 * 24)
+        );
 
 
     if (daysSinceLast > 1) {
@@ -1046,38 +1599,66 @@ function calculateStreak(stats) {
         streak;
 
 
-    if (
-        streak >
-        stats.longestStreak
-    ) {
-
-        stats.longestStreak =
-            streak;
-
-    }
+    stats.longestStreak =
+        Math.max(
+            stats.longestStreak,
+            streak
+        );
 
 }
 
 
-/* NEW CHALLENGE */
+/* =========================================================
+   LOCAL STORAGE
+   ========================================================= */
 
-newChallengeButton.addEventListener(
-    "click",
-    () => {
+function getStats() {
 
-        completionScreen.classList.remove(
-            "visible"
+    const saved =
+        localStorage.getItem(
+            "deadTimeStats"
         );
 
-        findChallenge();
+
+    if (!saved) {
+
+        return {
+
+            totalChallenges: 0,
+
+            totalMinutes: 0,
+
+            completions: [],
+
+            currentStreak: 0,
+
+            longestStreak: 0
+
+        };
 
     }
-);
 
 
-/* STATS */
+    return JSON.parse(saved);
 
-function updateStatsPage() {
+}
+
+
+function saveStats(stats) {
+
+    localStorage.setItem(
+        "deadTimeStats",
+        JSON.stringify(stats)
+    );
+
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+function updateStats() {
 
     const stats =
         getStats();
@@ -1107,20 +1688,22 @@ function updateStatsPage() {
         stats.totalMinutes;
 
 
-    const activity =
+    const message =
         document.getElementById(
             "activityMessage"
         );
 
 
-    if (stats.totalChallenges === 0) {
+    if (
+        stats.totalChallenges === 0
+    ) {
 
-        activity.textContent =
+        message.textContent =
             "Complete your first challenge to start building your history.";
 
     } else {
 
-        activity.textContent =
+        message.textContent =
             `You've completed ${stats.totalChallenges} challenge${stats.totalChallenges === 1 ? "" : "s"} and reclaimed ${stats.totalMinutes} minutes.`;
 
     }
@@ -1128,7 +1711,9 @@ function updateStatsPage() {
 }
 
 
-/* RESET */
+/* =========================================================
+   RESET
+   ========================================================= */
 
 document
     .getElementById("resetStatsButton")
@@ -1138,7 +1723,7 @@ document
 
             const confirmed =
                 confirm(
-                    "Are you sure you want to reset all your progress?"
+                    "Reset all Dead Time progress?"
                 );
 
 
@@ -1152,12 +1737,65 @@ document
             );
 
 
-            updateStatsPage();
+            updateStats();
 
         }
     );
 
 
-/* INITIAL LOAD */
+/* =========================================================
+   NEW CHALLENGE
+   ========================================================= */
 
-updateStatsPage();
+newChallengeButton.addEventListener(
+    "click",
+    () => {
+
+        completionScreen.classList.remove(
+            "visible"
+        );
+
+        findChallenge();
+
+    }
+);
+
+
+/* =========================================================
+   TIMER HELPERS
+   ========================================================= */
+
+function clearTimers() {
+
+    clearInterval(timerInterval);
+
+    timerInterval = null;
+
+    isPracticeTimerRunning = false;
+
+    remainingSeconds = 0;
+
+    engineTimer.textContent = "00:00";
+
+}
+
+
+function formatSeconds(seconds) {
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+    const remaining =
+        seconds % 60;
+
+
+    return `${String(minutes).padStart(2, "0")}:${String(remaining).padStart(2, "0")}`;
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+updateStats();
