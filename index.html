@@ -12,278 +12,371 @@
 
 <body>
 
-    <header class="navbar">
+<header class="navbar">
 
-        <div class="logo">DEAD TIME</div>
+    <div class="logo">DEAD TIME</div>
 
-        <nav>
-            <button class="nav-button active" data-page="home">Home</button>
-            <button class="nav-button" data-page="stats">Stats</button>
-        </nav>
+    <nav>
+        <button class="nav-button active" data-page="home">Home</button>
+        <button class="nav-button" data-page="stats">Stats</button>
+    </nav>
 
-    </header>
+</header>
 
 
-    <main>
+<main>
 
-        <!-- HOME -->
+    <!-- HOME -->
 
-        <section class="page active" id="homePage">
+    <section class="page active" id="homePage">
 
-            <div class="hero">
+        <div class="hero">
 
-                <p class="eyebrow">DEAD TIME</p>
+            <p class="eyebrow">DEAD TIME</p>
 
-                <h1>
-                    Don't waste<br>
-                    the gap.
-                </h1>
+            <h1>
+                Don't waste<br>
+                the gap.
+            </h1>
 
-                <p class="subtitle">
-                    You have time. Let's do something with it.
-                </p>
+            <p class="subtitle">
+                You have time. Let's do something with it.
+            </p>
 
-            </div>
+        </div>
 
 
-            <div class="setup-section">
+        <section class="setup-section">
 
-                <div class="selection-group">
+            <div class="selection-group">
 
-                    <h2>How much time do you have?</h2>
+                <h2>How much time do you have?</h2>
 
-                    <div class="time-options">
+                <div class="time-options">
 
-                        <button class="time-option" data-time="10">
-                            <strong>10</strong>
-                            <span>min</span>
-                        </button>
+                    <button class="time-option" data-time="10">
+                        <strong>10</strong>
+                        <span>min</span>
+                    </button>
 
-                        <button class="time-option" data-time="20">
-                            <strong>20</strong>
-                            <span>min</span>
-                        </button>
+                    <button class="time-option" data-time="20">
+                        <strong>20</strong>
+                        <span>min</span>
+                    </button>
 
-                        <button class="time-option" data-time="30">
-                            <strong>30</strong>
-                            <span>min</span>
-                        </button>
+                    <button class="time-option" data-time="30">
+                        <strong>30</strong>
+                        <span>min</span>
+                    </button>
 
-                        <button class="time-option" data-time="60">
-                            <strong>60</strong>
-                            <span>min</span>
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="selection-group">
-
-                    <h2>What's your vibe?</h2>
-
-                    <div class="vibe-options">
-
-                        <button class="vibe-option" data-vibe="chill">Chill</button>
-                        <button class="vibe-option" data-vibe="learn">Learn</button>
-                        <button class="vibe-option" data-vibe="move">Move</button>
-                        <button class="vibe-option" data-vibe="social">Social</button>
-                        <button class="vibe-option" data-vibe="random">Random</button>
-
-                    </div>
-
-                </div>
-
-
-                <button class="generate-button" id="generateButton">
-                    FIND ME SOMETHING
-                </button>
-
-            </div>
-
-
-            <!-- CHALLENGE -->
-
-            <section class="challenge-card" id="challengeCard">
-
-                <div class="challenge-intro" id="challengeIntro">
-
-                    <p class="challenge-time" id="challengeTime"></p>
-
-                    <p class="challenge-category" id="challengeCategory"></p>
-
-                    <h2 id="challengeTitle"></h2>
-
-                    <p class="challenge-description" id="challengeDescription"></p>
-
-                    <div class="challenge-actions">
-
-                        <button class="start-button" id="startButton">
-                            START CHALLENGE
-                        </button>
-
-                        <button class="again-button" id="againButton">
-                            Give me another
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- CHALLENGE WORKSPACE -->
-
-                <div class="challenge-workspace" id="challengeWorkspace">
-
-                    <div class="workspace-header">
-
-                        <div>
-                            <p class="active-label" id="workspaceCategory"></p>
-                            <h2 id="workspaceTitle"></h2>
-                        </div>
-
-                        <div class="timer" id="timer">
-                            00:00
-                        </div>
-
-                    </div>
-
-
-                    <div class="progress-container">
-
-                        <div class="progress-text">
-                            <span id="stepCounter">STEP 1</span>
-                            <span id="progressPercent">0%</span>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="step-card">
-
-                        <p class="step-label" id="stepLabel">
-                            STEP 1
-                        </p>
-
-                        <h3 id="stepTitle"></h3>
-
-                        <p id="stepContent"></p>
-
-                        <div class="step-example" id="stepExample"></div>
-
-                    </div>
-
-
-                    <div class="workspace-actions">
-
-                        <button class="timer-button" id="pauseButton">
-                            PAUSE
-                        </button>
-
-                        <button class="next-button" id="nextButton">
-                            NEXT STEP →
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- COMPLETION -->
-
-                <div class="completion-screen" id="completionScreen">
-
-                    <p class="completion-label">
-                        NICE.
-                    </p>
-
-                    <h2>Time well spent.</h2>
-
-                    <p id="completionMessage"></p>
-
-                    <button class="generate-button" id="newChallengeButton">
-                        FIND SOMETHING ELSE
+                    <button class="time-option" data-time="60">
+                        <strong>60</strong>
+                        <span>min</span>
                     </button>
 
                 </div>
 
-            </section>
+            </div>
+
+
+            <div class="selection-group">
+
+                <h2>What's your vibe?</h2>
+
+                <div class="vibe-options">
+
+                    <button class="vibe-option" data-vibe="chill">Chill</button>
+                    <button class="vibe-option" data-vibe="learn">Learn</button>
+                    <button class="vibe-option" data-vibe="move">Move</button>
+                    <button class="vibe-option" data-vibe="social">Social</button>
+                    <button class="vibe-option" data-vibe="random">Random</button>
+
+                </div>
+
+            </div>
+
+
+            <button class="generate-button" id="generateButton">
+                FIND ME SOMETHING
+            </button>
 
         </section>
 
 
-        <!-- STATS -->
+        <!-- CHALLENGE -->
 
-        <section class="page stats-page" id="statsPage">
+        <section class="challenge-card" id="challengeCard">
 
-            <div class="stats-header">
+            <!-- INTRODUCTION -->
 
-                <p class="eyebrow">YOUR PROGRESS</p>
+            <div class="challenge-intro" id="challengeIntro">
 
-                <h1>Time<br>reclaimed.</h1>
+                <div class="challenge-meta">
+
+                    <span id="challengeCategory"></span>
+                    <span id="challengeTime"></span>
+
+                </div>
+
+                <h2 id="challengeTitle"></h2>
+
+                <p class="challenge-description" id="challengeDescription"></p>
+
+                <div class="what-youll-do">
+
+                    <p class="small-label">WHAT YOU'LL DO</p>
+
+                    <div id="challengeOverview"></div>
+
+                </div>
+
+                <div class="challenge-actions">
+
+                    <button class="start-button" id="startButton">
+                        BEGIN
+                    </button>
+
+                    <button class="again-button" id="againButton">
+                        Give me another
+                    </button>
+
+                </div>
 
             </div>
 
 
-            <div class="stats-grid">
+            <!-- ENGINE -->
 
-                <div class="stat-card">
-                    <span class="stat-label">CHALLENGES</span>
-                    <strong id="totalChallenges">0</strong>
-                    <span class="stat-description">completed</span>
+            <div class="engine" id="engine">
+
+                <div class="engine-header">
+
+                    <div>
+
+                        <p class="module-label" id="moduleType"></p>
+
+                        <h2 id="moduleTitle"></h2>
+
+                    </div>
+
+                    <div class="engine-timer" id="engineTimer">
+                        00:00
+                    </div>
+
                 </div>
 
-                <div class="stat-card">
-                    <span class="stat-label">STREAK</span>
-                    <strong id="currentStreak">0</strong>
-                    <span class="stat-description">days</span>
+
+                <div class="progress-area">
+
+                    <div class="progress-info">
+
+                        <span id="moduleCounter">
+                            1 / 1
+                        </span>
+
+                        <span id="progressPercentage">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-fill"
+                            id="progressFill">
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="stat-card">
-                    <span class="stat-label">BEST STREAK</span>
-                    <strong id="longestStreak">0</strong>
-                    <span class="stat-description">days</span>
+
+                <div class="learning-area" id="learningArea">
                 </div>
 
-                <div class="stat-card">
-                    <span class="stat-label">TIME RECLAIMED</span>
-                    <strong id="totalMinutes">0</strong>
-                    <span class="stat-description">minutes</span>
+
+                <div class="feedback" id="feedback">
+                </div>
+
+
+                <div class="engine-actions">
+
+                    <button
+                        class="secondary-button"
+                        id="hintButton">
+                        SHOW HINT
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        id="continueButton">
+                        CONTINUE →
+                    </button>
+
                 </div>
 
             </div>
 
 
-            <div class="stats-bottom">
+            <!-- COMPLETION -->
 
-                <h2>Your activity</h2>
+            <div class="completion-screen" id="completionScreen">
 
-                <p id="activityMessage">
-                    Complete your first challenge to start building your history.
+                <p class="completion-label">
+                    CHALLENGE COMPLETE
                 </p>
 
-                <button class="reset-button" id="resetStatsButton">
-                    Reset progress
+                <h2>Time well spent.</h2>
+
+                <p id="completionMessage"></p>
+
+                <div class="completion-stats">
+
+                    <div>
+                        <strong id="completionMinutes">0</strong>
+                        <span>minutes</span>
+                    </div>
+
+                    <div>
+                        <strong id="completionScore">0%</strong>
+                        <span>mastery</span>
+                    </div>
+
+                </div>
+
+                <button
+                    class="generate-button"
+                    id="newChallengeButton">
+                    FIND SOMETHING ELSE
                 </button>
 
             </div>
 
         </section>
 
-    </main>
+    </section>
 
 
-    <footer>
-        <p>Dead Time — Do something with it.</p>
-    </footer>
+    <!-- STATS -->
+
+    <section class="page stats-page" id="statsPage">
+
+        <div class="stats-header">
+
+            <p class="eyebrow">YOUR PROGRESS</p>
+
+            <h1>
+                Time<br>
+                reclaimed.
+            </h1>
+
+        </div>
 
 
-    <script src="script.js"></script>
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    CHALLENGES
+                </span>
+
+                <strong id="totalChallenges">
+                    0
+                </strong>
+
+                <span class="stat-description">
+                    completed
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    STREAK
+                </span>
+
+                <strong id="currentStreak">
+                    0
+                </strong>
+
+                <span class="stat-description">
+                    days
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    BEST STREAK
+                </span>
+
+                <strong id="longestStreak">
+                    0
+                </strong>
+
+                <span class="stat-description">
+                    days
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-label">
+                    TIME RECLAIMED
+                </span>
+
+                <strong id="totalMinutes">
+                    0
+                </strong>
+
+                <span class="stat-description">
+                    minutes
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats-bottom">
+
+            <h2>Your progress</h2>
+
+            <p id="activityMessage">
+                Complete your first challenge to start building your history.
+            </p>
+
+            <button
+                class="reset-button"
+                id="resetStatsButton">
+                Reset progress
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Dead Time — Do something with it.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 
